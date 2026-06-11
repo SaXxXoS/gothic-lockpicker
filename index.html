@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Gothic Schlossknacker</title>
+<title>Schlossknacker für Gothic</title>
 <style>
 :root{
   --bg:#0b0807;
@@ -2302,18 +2302,1280 @@ body::after{
   box-shadow:0 0 0 2px rgba(175,151,118,.20), inset 0 1px 0 rgba(255,255,255,.10);
 }
 
+
+/* Fixierter Riegel: nur der Riegel selbst wird blau markiert. */
+.railCard.fixed .bar{
+  border-color:#6fa7d8 !important;
+  background:
+    radial-gradient(circle at 16px 8px, rgba(220,240,255,.10) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 36px 18px, rgba(0,0,0,.18) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 60px 10px, rgba(220,240,255,.07) 0 1px, transparent 1.3px),
+    linear-gradient(180deg, rgba(140,190,235,.18), rgba(0,0,0,.18)),
+    linear-gradient(180deg, #7f93a8 0%, #4b6278 52%, #637d95 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.20),
+    inset 0 -1px 1px rgba(0,0,0,.32),
+    0 0 8px rgba(90,145,200,.24),
+    0 2px 7px rgba(0,0,0,.24) !important;
+}
+
+
+
+/* FINAL PATCH: gespeicherte Schlösser als kleines eigenes Scrollfenster */
+#savedList.savedList{
+  max-height: 220px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 0 9px 9px !important;
+  margin-top: 0 !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+#savedList.savedList .storeItem{
+  min-height: 36px !important;
+  padding: 4px 5px !important;
+  gap: 4px !important;
+  font-size: 9px !important;
+  grid-template-columns: 1fr auto auto !important;
+}
+#savedList.savedList .storeItem .title{
+  font-size: 10px !important;
+  line-height: 1.05 !important;
+}
+#savedList.savedList .storeItem .sub{
+  font-size: 8px !important;
+  line-height: 1.05 !important;
+  margin-top: 1px !important;
+}
+#savedList.savedList .storeItem .tapBtn{
+  font-size: 8px !important;
+  padding: 3px 5px !important;
+  min-height: 24px !important;
+}
+
+
+/* PATCH ChatGPT: Gespeicherte Schlösser – Eingabeleiste länger + Button passend */
+.storeBox{
+  display:flex !important;
+  align-items:stretch !important;
+  gap:8px !important;
+  margin:8px 9px 10px !important;
+  flex-wrap:nowrap !important;
+}
+
+.nameSearchWrap{
+  flex:1 1 auto !important;
+  min-width:0 !important;
+  position:relative !important;
+  display:flex !important;
+  align-items:stretch !important;
+}
+
+/* Suchsymbol ausblenden, damit die Leiste wie im Screenshot wirkt */
+.nameSearchIcon{
+  display:none !important;
+}
+
+.storeBox input,
+#saveName{
+  width:100% !important;
+  min-width:0 !important;
+  height:58px !important;
+  padding:0 16px !important;
+  box-sizing:border-box !important;
+
+  color:#f0e3d2 !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.28)),
+    linear-gradient(180deg, #120d0b 0%, #090706 100%) !important;
+  border:1px solid rgba(165,145,122,.42) !important;
+  border-radius:12px !important;
+
+  font:inherit !important;
+  font-size:18px !important;
+  line-height:1.1 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 -1px 0 rgba(0,0,0,.56),
+    0 1px 4px rgba(0,0,0,.30) !important;
+}
+
+#saveName::placeholder{
+  color:#b9aa99 !important;
+  opacity:1 !important;
+}
+
+.storeBox .tapBtn,
+#saveBtn{
+  flex:0 0 auto !important;
+  min-width:165px !important;
+  height:58px !important;
+  padding:0 20px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  white-space:nowrap !important;
+  font-size:18px !important;
+  line-height:1 !important;
+  border-radius:12px !important;
+}
+
+@media (max-width:420px){
+  .storeBox{
+    gap:7px !important;
+  }
+
+  .storeBox .tapBtn,
+  #saveBtn{
+    min-width:148px !important;
+    padding:0 16px !important;
+    font-size:16px !important;
+  }
+
+  .storeBox input,
+  #saveName{
+    font-size:16px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v2: Suchfeld länger und schmäler, Speichern-Knopf kürzer */
+.storeBox{
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  margin:8px 9px 10px !important;
+  flex-wrap:nowrap !important;
+}
+
+.nameSearchWrap{
+  flex:1 1 auto !important;
+  min-width:0 !important;
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+}
+
+.nameSearchIcon{
+  display:none !important;
+}
+
+.storeBox input,
+#saveName{
+  width:100% !important;
+  min-width:0 !important;
+  height:42px !important;
+  padding:0 14px !important;
+  box-sizing:border-box !important;
+
+  color:#f0e3d2 !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.24)),
+    linear-gradient(180deg, #120d0b 0%, #090706 100%) !important;
+  border:1px solid rgba(165,145,122,.42) !important;
+  border-radius:10px !important;
+
+  font:inherit !important;
+  font-size:14px !important;
+  line-height:1.1 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 -1px 0 rgba(0,0,0,.56),
+    0 1px 4px rgba(0,0,0,.30) !important;
+}
+
+#saveName::placeholder{
+  color:#b9aa99 !important;
+  opacity:1 !important;
+}
+
+.storeBox .tapBtn,
+#saveBtn{
+  flex:0 0 126px !important;
+  width:126px !important;
+  min-width:126px !important;
+  max-width:126px !important;
+  height:42px !important;
+  padding:0 12px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  white-space:nowrap !important;
+  font-size:13px !important;
+  line-height:1 !important;
+  border-radius:10px !important;
+}
+
+@media (max-width:420px){
+  .storeBox{
+    gap:7px !important;
+    margin:8px 7px 10px !important;
+  }
+
+  .storeBox input,
+  #saveName{
+    height:40px !important;
+    font-size:13px !important;
+    padding:0 12px !important;
+  }
+
+  .storeBox .tapBtn,
+  #saveBtn{
+    flex:0 0 118px !important;
+    width:118px !important;
+    min-width:118px !important;
+    max-width:118px !important;
+    height:40px !important;
+    font-size:12px !important;
+    padding:0 10px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v3: Speichern-Knopf wieder sicher anklickbar */
+.storeBox{
+  position:relative !important;
+  z-index:20 !important;
+}
+
+.nameSearchWrap{
+  position:relative !important;
+  z-index:1 !important;
+}
+
+#saveName{
+  pointer-events:auto !important;
+  position:relative !important;
+  z-index:1 !important;
+}
+
+#saveBtn,
+.storeBox .tapBtn{
+  position:relative !important;
+  z-index:5 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  user-select:none !important;
+  -webkit-user-select:none !important;
+  touch-action:manipulation !important;
+}
+
+/* Pseudo-Elemente dürfen den Klick/Tap nicht blockieren */
+#saveBtn::before,
+#saveBtn::after,
+.storeBox .tapBtn::before,
+.storeBox .tapBtn::after,
+.nameSearchWrap::before,
+.nameSearchWrap::after{
+  pointer-events:none !important;
+}
+
+
+
+/* PATCH ChatGPT v5: Nur Speichern-Knopf anpassen, Laden/Löschen unverändert lassen */
+.storeBox{
+  display:flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  margin:8px 9px 10px !important;
+  flex-wrap:nowrap !important;
+}
+
+.nameSearchWrap{
+  flex:1 1 auto !important;
+  min-width:0 !important;
+  display:flex !important;
+  align-items:center !important;
+}
+
+.nameSearchIcon{
+  display:none !important;
+}
+
+.storeBox input,
+#saveName{
+  width:100% !important;
+  min-width:0 !important;
+  height:38px !important;
+  padding:0 13px !important;
+  box-sizing:border-box !important;
+  font:inherit !important;
+  font-size:13px !important;
+  line-height:1.1 !important;
+  border-radius:10px !important;
+}
+
+/* Nur dieser Knopf wird angepasst.
+   Ziel: etwa so breit wie Laden + Löschen zusammen, aber ohne diese beiden zu verändern. */
+#saveBtn{
+  flex:0 0 134px !important;
+  width:134px !important;
+  min-width:134px !important;
+  max-width:134px !important;
+  height:38px !important;
+  padding:0 8px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:12px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border-radius:10px !important;
+
+  position:relative !important;
+  z-index:5 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  touch-action:manipulation !important;
+}
+
+/* Sicherheit: Laden/Löschen aus der Liste NICHT überschreiben */
+#savedList .storeItem .tapBtn{
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+}
+
+@media (max-width:420px){
+  .storeBox{
+    gap:6px !important;
+    margin:8px 7px 10px !important;
+  }
+
+  .storeBox input,
+  #saveName{
+    height:37px !important;
+    font-size:12px !important;
+    padding:0 12px !important;
+  }
+
+  #saveBtn{
+    flex-basis:128px !important;
+    width:128px !important;
+    min-width:128px !important;
+    max-width:128px !important;
+    height:37px !important;
+    font-size:11px !important;
+    padding:0 7px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v7: obere Speicher-Zeile korrigiert
+   Ziel: Suchfeld wieder deutlich länger, Speichern schmaler,
+   Laden/Löschen unten bleiben unverändert. */
+.storeBox{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  margin:8px 9px 10px !important;
+  flex-wrap:nowrap !important;
+}
+
+.nameSearchWrap{
+  flex:1 1 auto !important;
+  min-width:0 !important;
+  display:flex !important;
+  align-items:center !important;
+}
+
+.nameSearchIcon{
+  display:none !important;
+}
+
+.storeBox input,
+#saveName{
+  width:100% !important;
+  min-width:0 !important;
+  height:50px !important;
+  padding:0 16px !important;
+  box-sizing:border-box !important;
+  font:inherit !important;
+  font-size:15px !important;
+  line-height:1.1 !important;
+  border-radius:11px !important;
+}
+
+#saveBtn{
+  flex:0 0 160px !important;
+  width:160px !important;
+  min-width:160px !important;
+  max-width:160px !important;
+  height:50px !important;
+  padding:0 10px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:17px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border-radius:11px !important;
+
+  position:relative !important;
+  z-index:5 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  touch-action:manipulation !important;
+}
+
+/* Sicherheit: kleine Listenknöpfe unten nicht anfassen */
+#savedList .storeItem .tapBtn{
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+}
+
+/* kleine Geräte */
+@media (max-width:420px){
+  .storeBox{
+    gap:8px !important;
+    margin:8px 7px 10px !important;
+  }
+
+  .storeBox input,
+  #saveName{
+    height:48px !important;
+    padding:0 14px !important;
+    font-size:14px !important;
+  }
+
+  #saveBtn{
+    flex-basis:152px !important;
+    width:152px !important;
+    min-width:152px !important;
+    max-width:152px !important;
+    height:48px !important;
+    font-size:16px !important;
+    padding:0 8px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v8: Speichern-Knopf kleiner und schmäler */
+#saveBtn{
+  flex:0 0 132px !important;
+  width:132px !important;
+  min-width:132px !important;
+  max-width:132px !important;
+  height:44px !important;
+  padding:0 8px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:14px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border-radius:10px !important;
+
+  position:relative !important;
+  z-index:5 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  touch-action:manipulation !important;
+}
+
+/* Eingabefeld passend zur kleineren Knopfhöhe */
+.storeBox input,
+#saveName{
+  height:44px !important;
+  font-size:14px !important;
+  padding:0 14px !important;
+  border-radius:10px !important;
+}
+
+/* Damit das Suchfeld durch den kleineren Knopf wieder länger wird */
+.storeBox{
+  gap:8px !important;
+}
+
+@media (max-width:420px){
+  #saveBtn{
+    flex-basis:124px !important;
+    width:124px !important;
+    min-width:124px !important;
+    max-width:124px !important;
+    height:42px !important;
+    font-size:13px !important;
+    padding:0 7px !important;
+  }
+
+  .storeBox input,
+  #saveName{
+    height:42px !important;
+    font-size:13px !important;
+    padding:0 12px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v10: Laden/Löschen kleiner, gemeinsam bündig mit Speichern */
+#savedList.savedList .storeItem{
+  display:grid !important;
+  grid-template-columns: minmax(0,1fr) 62px 62px !important;
+  column-gap:8px !important;
+  align-items:center !important;
+}
+
+/* 62 + 8 + 62 = 132px, also gleiche Gesamtbreite wie der Speichern-Knopf aus v8 */
+#savedList.savedList .storeItem .tapBtn{
+  width:62px !important;
+  min-width:62px !important;
+  max-width:62px !important;
+  height:30px !important;
+  padding:0 6px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:9.5px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border-radius:9px !important;
+}
+
+@media (max-width:420px){
+  #savedList.savedList .storeItem{
+    grid-template-columns: minmax(0,1fr) 58px 58px !important;
+    column-gap:8px !important;
+  }
+
+  #savedList.savedList .storeItem .tapBtn{
+    width:58px !important;
+    min-width:58px !important;
+    max-width:58px !important;
+    height:29px !important;
+    font-size:9px !important;
+    padding:0 5px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v12: Laden/Löschen minimal größer, aber weiterhin bündig mit Speichern
+   Idee:
+   - Buttons selbst minimal breiter
+   - Zwischenraum etwas kleiner
+   - Gesamtbreite bleibt gleich wie Speichern
+*/
+
+/* Desktop / größere Breite:
+   63 + 6 + 63 = 132px -> gleiche Gesamtbreite wie Speichern */
+#savedList.savedList .storeItem{
+  grid-template-columns: minmax(0,1fr) 63px 63px !important;
+  column-gap:6px !important;
+  align-items:center !important;
+}
+
+#savedList.savedList .storeItem .tapBtn{
+  width:63px !important;
+  min-width:63px !important;
+  max-width:63px !important;
+  height:31px !important;
+  padding:0 6px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:9.5px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border-radius:9px !important;
+}
+
+/* Mobile:
+   59 + 6 + 59 = 124px -> gleiche Gesamtbreite wie Speichern aus v8 */
+@media (max-width:420px){
+  #savedList.savedList .storeItem{
+    grid-template-columns: minmax(0,1fr) 59px 59px !important;
+    column-gap:6px !important;
+  }
+
+  #savedList.savedList .storeItem .tapBtn{
+    width:59px !important;
+    min-width:59px !important;
+    max-width:59px !important;
+    height:30px !important;
+    font-size:9.1px !important;
+    padding:0 5px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v14: Speichern-Knopf sichtbar nach links verschieben */
+#saveBtn{
+  position:relative !important;
+  left:-16px !important;
+  z-index:6 !important;
+  pointer-events:auto !important;
+}
+
+/* das Suchfeld minimal länger lassen, aber nicht unter den Button schieben */
+.nameSearchWrap{
+  margin-right:-6px !important;
+}
+
+/* kleine Displays etwas weniger stark */
+@media (max-width:420px){
+  #saveBtn{
+    left:-14px !important;
+  }
+
+  .nameSearchWrap{
+    margin-right:-5px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v15: Speichern-Knopf minimal nach rechts gegenüber v14 */
+#saveBtn{
+  left:-11px !important;
+}
+
+.nameSearchWrap{
+  margin-right:-3px !important;
+}
+
+@media (max-width:420px){
+  #saveBtn{
+    left:-10px !important;
+  }
+
+  .nameSearchWrap{
+    margin-right:-3px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v16: Speichern, Laden und Löschen schmäler und kürzer */
+
+/* Speichern-Knopf oben */
+#saveBtn{
+  flex:0 0 116px !important;
+  width:116px !important;
+  min-width:116px !important;
+  max-width:116px !important;
+  height:38px !important;
+  padding:0 7px !important;
+  font-size:13px !important;
+  border-radius:9px !important;
+}
+
+/* Eingabefeld oben passend niedriger */
+.storeBox input,
+#saveName{
+  height:38px !important;
+  font-size:13px !important;
+  padding:0 12px !important;
+  border-radius:9px !important;
+}
+
+/* Laden/Löschen unten schmäler und kürzer */
+#savedList.savedList .storeItem{
+  grid-template-columns: minmax(0,1fr) 54px 54px !important;
+  column-gap:6px !important;
+  align-items:center !important;
+}
+
+#savedList.savedList .storeItem .tapBtn{
+  width:54px !important;
+  min-width:54px !important;
+  max-width:54px !important;
+  height:26px !important;
+  padding:0 5px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:8.5px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border-radius:8px !important;
+}
+
+@media (max-width:420px){
+  #saveBtn{
+    flex-basis:110px !important;
+    width:110px !important;
+    min-width:110px !important;
+    max-width:110px !important;
+    height:36px !important;
+    font-size:12px !important;
+    padding:0 6px !important;
+  }
+
+  .storeBox input,
+  #saveName{
+    height:36px !important;
+    font-size:12px !important;
+    padding:0 11px !important;
+  }
+
+  #savedList.savedList .storeItem{
+    grid-template-columns: minmax(0,1fr) 52px 52px !important;
+    column-gap:5px !important;
+  }
+
+  #savedList.savedList .storeItem .tapBtn{
+    width:52px !important;
+    min-width:52px !important;
+    max-width:52px !important;
+    height:25px !important;
+    font-size:8px !important;
+    padding:0 4px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v17: Suchleiste kürzer und minimal nach rechts */
+.nameSearchWrap{
+  flex:0 1 auto !important;
+  width: calc(100% - 148px) !important;
+  margin-left:8px !important;
+  margin-right:0 !important;
+}
+
+.storeBox input,
+#saveName{
+  width:100% !important;
+}
+
+/* Speichern bleibt wie in v16 positioniert */
+#saveBtn{
+  margin-left:0 !important;
+}
+
+@media (max-width:420px){
+  .nameSearchWrap{
+    width: calc(100% - 138px) !important;
+    margin-left:7px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v18: Speichern-Knopf wieder weiter nach rechts */
+#saveBtn{
+  left:-4px !important;
+  margin-left:4px !important;
+}
+
+/* Suchleiste bleibt kürzer, aber nimmt dem Speichern-Knopf keinen Platz weg */
+.nameSearchWrap{
+  margin-left:6px !important;
+  margin-right:0 !important;
+}
+
+@media (max-width:420px){
+  #saveBtn{
+    left:-3px !important;
+    margin-left:4px !important;
+  }
+
+  .nameSearchWrap{
+    margin-left:6px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v19: Suchleiste minimal links, Speichern minimal rechts */
+.nameSearchWrap{
+  margin-left:3px !important;
+}
+
+#saveBtn{
+  left:0px !important;
+  margin-left:7px !important;
+}
+
+@media (max-width:420px){
+  .nameSearchWrap{
+    margin-left:3px !important;
+  }
+
+  #saveBtn{
+    left:0px !important;
+    margin-left:7px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v20: Speichern minimal rechts, Suchleiste minimal nach rechts verlängert */
+.nameSearchWrap{
+  margin-left:3px !important;
+  width: calc(100% - 144px) !important;
+}
+
+#saveBtn{
+  left:0px !important;
+  margin-left:10px !important;
+}
+
+@media (max-width:420px){
+  .nameSearchWrap{
+    margin-left:3px !important;
+    width: calc(100% - 134px) !important;
+  }
+
+  #saveBtn{
+    left:0px !important;
+    margin-left:10px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v21: Speichern-Knopf minimal nach links */
+#saveBtn{
+  margin-left:7px !important;
+}
+
+@media (max-width:420px){
+  #saveBtn{
+    margin-left:7px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v22: Suchleiste minimal nach rechts verlängert, Speichern minimal nach links */
+.nameSearchWrap{
+  width: calc(100% - 142px) !important;
+}
+
+#saveBtn{
+  margin-left:5px !important;
+}
+
+@media (max-width:420px){
+  .nameSearchWrap{
+    width: calc(100% - 132px) !important;
+  }
+
+  #saveBtn{
+    margin-left:5px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v23: Suchleiste nochmals minimal nach rechts verlängert, Speichern nochmals minimal nach links */
+.nameSearchWrap{
+  width: calc(100% - 140px) !important;
+}
+
+#saveBtn{
+  margin-left:3px !important;
+}
+
+@media (max-width:420px){
+  .nameSearchWrap{
+    width: calc(100% - 130px) !important;
+  }
+
+  #saveBtn{
+    margin-left:3px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v24: Suchleiste erneut minimal nach rechts verlängert, Speichern erneut minimal nach links */
+.nameSearchWrap{
+  width: calc(100% - 138px) !important;
+}
+
+#saveBtn{
+  margin-left:1px !important;
+}
+
+@media (max-width:420px){
+  .nameSearchWrap{
+    width: calc(100% - 128px) !important;
+  }
+
+  #saveBtn{
+    margin-left:1px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v25: noch einmal Suchleiste nach rechts verlängert, Speichern nach links */
+.nameSearchWrap{
+  width: calc(100% - 136px) !important;
+}
+
+#saveBtn{
+  margin-left:-1px !important;
+}
+
+@media (max-width:420px){
+  .nameSearchWrap{
+    width: calc(100% - 126px) !important;
+  }
+
+  #saveBtn{
+    margin-left:-1px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT v26: Lupe rechts in der Suchleiste anzeigen */
+.nameSearchWrap{
+  position:relative !important;
+}
+
+.nameSearchIcon{
+  display:flex !important;
+  position:absolute !important;
+  right:13px !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  z-index:4 !important;
+  pointer-events:none !important;
+
+  width:18px !important;
+  height:18px !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:15px !important;
+  line-height:1 !important;
+  color:#eadfcd !important;
+  opacity:.95 !important;
+}
+
+/* vorhandenes Zeichen gegen echte Lupe tauschen */
+.nameSearchIcon::before{
+  content:"🔍" !important;
+}
+
+.nameSearchIcon{
+  font-size:0 !important;
+}
+
+/* rechts Platz lassen, damit Text nicht unter die Lupe läuft */
+.storeBox input,
+#saveName{
+  padding-right:40px !important;
+}
+
+
+
+/* PATCH ChatGPT Index 1: Lupe rechts in der Suchleiste wirklich anzeigen */
+.nameSearchWrap{
+  position:relative !important;
+}
+
+.nameSearchIcon{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+
+  position:absolute !important;
+  right:13px !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  z-index:999 !important;
+
+  width:22px !important;
+  height:22px !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:16px !important;
+  line-height:1 !important;
+  color:#eadfcd !important;
+
+  pointer-events:none !important;
+  background:transparent !important;
+}
+
+/* ältere ::before-Lösung deaktivieren, damit nicht zwei Icons entstehen */
+.nameSearchIcon::before,
+.nameSearchIcon::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Platz für die Lupe schaffen */
+#saveName,
+.storeBox input{
+  padding-right:44px !important;
+}
+
+
+
+/* PATCH ChatGPT Index 2: mehr Scrollraum unten, damit Zurück/Weiter höher gehalten werden können */
+body{
+  padding-bottom:220px !important;
+}
+
+/* Unsichtbarer Zusatzraum am Seitenende für bequemeres Scrollen auf dem Handy */
+.wrap::after{
+  content:"";
+  display:block;
+  height:190px;
+}
+
+@media (max-width:420px){
+  body{
+    padding-bottom:250px !important;
+  }
+
+  .wrap::after{
+    height:220px;
+  }
+}
+
+
+
+/* PATCH ChatGPT Index 3: Gespeicherte Schlösser und Verlauf zwischen Sprache und Riegel-Auswahl */
+.movedStorePanel{
+  padding:7px 9px !important;
+  margin-bottom:6px !important;
+}
+
+.movedStorePanel .fold{
+  margin-top:0 !important;
+  margin-bottom:8px !important;
+}
+
+.movedStorePanel .fold:last-of-type{
+  margin-bottom:8px !important;
+}
+
+.movedStorePanel .resetRow{
+  margin-top:4px !important;
+}
+
+.movedStorePanel + .selectorPanel{
+  margin-top:0 !important;
+}
+
+
+
+/* PATCH ChatGPT Index 4: Reset-Knöpfe wieder unten unter Knacken */
+.movedStorePanel .resetRow{
+  display:none !important;
+}
+
+#solveBtn + .resetRow{
+  margin-top:8px !important;
+}
+
+
+
+/* PATCH ChatGPT Index 5: Riegel bewegen sich bei Weiter/Zurück animiert */
+body.solutionAnimating .bar{
+  transition:left 280ms ease-in-out !important;
+}
+body.solutionAnimating .tapBtn{
+  pointer-events:none;
+}
+
+
+
+/* PATCH ChatGPT Index 7: FIX-Badge rechts ebenfalls blau leuchten lassen */
+.railCard.fixed .stateBadge{
+  color:#e6f1ff !important;
+  border-color:#6fa7d8 !important;
+  background:
+    linear-gradient(180deg, rgba(185,220,255,.16), rgba(40,75,115,.38)),
+    rgba(52,82,118,.55) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 0 10px rgba(95,160,230,.30),
+    0 0 18px rgba(80,135,210,.18) !important;
+  text-shadow:0 1px 0 rgba(0,0,0,.6) !important;
+}
+
+
+
+/* PATCH ChatGPT Index 8: FIX-Badge im gleichen Pill-Stil wie Gleich/Gegen, nur blau */
+.railCard.fixed .stateBadge{
+  color:#dcecff !important;
+  border:2px solid #6fb4ee !important;
+  background:
+    linear-gradient(90deg, rgba(150,190,225,.34) 0%, rgba(150,190,225,.20) 18%, rgba(0,0,0,0) 19%),
+    linear-gradient(180deg, rgba(125,170,215,.18), rgba(0,0,0,.14)),
+    #263f5c !important;
+  box-shadow:
+    inset 0 1px 0 rgba(235,248,255,.18),
+    inset 0 -1px 0 rgba(0,0,0,.38),
+    0 0 10px rgba(95,165,235,.35),
+    0 0 18px rgba(75,135,210,.18) !important;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.75),
+    0 2px 0 rgba(0,0,0,.35) !important;
+}
+
+/* Nur falls ältere Regeln FIX flacher machen: Pill-Rundung erzwingen */
+.railCard.fixed .stateBadge{
+  border-radius:999px !important;
+}
+
+
+
+/* PATCH ChatGPT Index 9: FIX optisch näher an Gleich/Gegen */
+.railCard.fixed .stateBadge{
+  color:#d8e8f8 !important;
+  border:2px solid #74aee0 !important;
+  border-radius:999px !important;
+
+  background:
+    radial-gradient(ellipse at 18% 50%, rgba(150,185,215,.42) 0%, rgba(105,145,180,.28) 28%, transparent 31%),
+    linear-gradient(180deg, rgba(95,135,175,.14), rgba(0,0,0,.18)),
+    #18304a !important;
+
+  box-shadow:
+    inset 0 2px 0 rgba(235,248,255,.13),
+    inset 0 -2px 0 rgba(0,0,0,.34),
+    0 0 7px rgba(90,150,215,.22) !important;
+
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.75),
+    0 2px 0 rgba(0,0,0,.28) !important;
+}
+
+/* FIX nicht zu grell wirken lassen */
+.railCard.fixed .stateBadge::before,
+.railCard.fixed .stateBadge::after{
+  display:none !important;
+  content:none !important;
+}
+
+
+
+/* PATCH ChatGPT Index 10: FIX direkt vom Gleich/Gegen-Style abgeleitet */
+.railCard.fixed .stateBadge{
+  color:#e4f2ff !important;
+  border:1px solid #5aa6e6 !important;
+  border-radius:999px !important;
+  background:rgba(22,48,86,.84) !important;
+  box-shadow:0 0 10px rgba(80,150,225,.30) !important;
+  text-shadow:none !important;
+}
+
+/* keine Extra-Verläufe beim FIX, damit es wie Gleich/Gegen wirkt */
+.railCard.fixed .stateBadge::before,
+.railCard.fixed .stateBadge::after{
+  display:none !important;
+  content:none !important;
+}
+
+
+
+/* PATCH ChatGPT Index 12: FIX nur farblich angepasst, Form bleibt unverändert */
+.railCard.fixed .stateBadge{
+  color:#dceeff !important;
+  border-color:#5aa6e6 !important;
+  background:rgba(18,48,86,.84) !important;
+  box-shadow:0 0 10px rgba(72,150,225,.30) !important;
+}
+
+/* Keine Formänderung mehr:
+   kein border-radius, keine border-width, kein anderer Aufbau. */
+
+
+
+/* PATCH ChatGPT Index 17: FIX-Farbe + linker Akzent exakt nach Gleich/Gegen-Prinzip */
+.railCard.fixed .stateBadge{
+  color:#dceeff !important;
+  border-color:#5aa6e6 !important;
+  background:rgba(18,48,86,.84) !important;
+  box-shadow:
+    inset 3px 0 0 rgba(120,175,230,.55),
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 0 10px rgba(72,150,225,.30) !important;
+}
+
+/* Keine Formänderung: nur Farbgebung und linker Innen-Akzent */
+.railCard.fixed .stateBadge::before,
+.railCard.fixed .stateBadge::after{
+  display:none !important;
+  content:none !important;
+}
+
+
+
+/* PATCH ChatGPT Index 22: Titel sicher untereinander anzeigen */
+.header h1 span{
+  display:block !important;
+}
+
+#appTitleTop{
+  white-space:nowrap !important;
+}
+
+#appTitleBottom{
+  white-space:nowrap !important;
+  margin-top:2px !important;
+}
+
+
+
+/* PATCH ChatGPT Index 23: Titel dreizeilig wie gewünscht */
+.header h1 span{
+  display:block !important;
+  white-space:nowrap !important;
+}
+
+#appTitleTop{
+  text-align:center !important;
+}
+
+#appTitleMiddle{
+  text-align:center !important;
+  font-size:.82em !important;
+  line-height:.92 !important;
+  margin-top:1px !important;
+  margin-bottom:0 !important;
+}
+
+#appTitleBottom{
+  text-align:center !important;
+  margin-top:0 !important;
+}
+
+
 </style>
 </head>
 <body>
 <div class="bgLogo" aria-hidden="true">
   <div class="bgLogoMark">✦</div>
-  <div class="bgLogoText">GOTHIC<br>SCHLOSSKNACKER</div>
+  <div class="bgLogoText">SCHLOSSKNACKER<br>FÜR<br>GOTHIC</div>
   <div class="bgLogoMark">✦</div>
 </div>
 <div class="wrap">
   <div class="panel header">
     <div class="titleMark">✦</div>
-    <h1><span id="appTitleTop">GOTHIC</span><span id="appTitleBottom">SCHLOSSKNACKER</span></h1>
+    <h1><span id="appTitleTop">SCHLOSSKNACKER</span><span id="appTitleMiddle">FÜR</span><span id="appTitleBottom">GOTHIC</span></h1>
     <div class="titleMark">✦</div>
   </div>
 
@@ -2321,15 +3583,17 @@ body::after{
     <details class="fold">
       <summary id="helpSummary">Hilfe</summary>
       <div class="helpText" id="helpText">
-        <p><b>So benutzt du den Schlossknacker:</b></p>
-        <p><b>1. Riegelanzahl wählen:</b> Wähle zuerst die Anzahl der Riegel. Riegel 1 ist unten bzw. vorne, der höchste Riegel oben bzw. hinten.</p>
-        <p><b>2. Positionen setzen:</b> Ziehe jeden Riegel links oder rechts, bis die sichtbare Startposition stimmt. Der goldene Pin markiert die feste Stiftposition in der Mitte.</p>
-        <p><b>3. Aktiven Riegel fixieren:</b> Halte einen Riegel kurz gedrückt. Dieser Riegel wird als fixierter, aktiver Riegel gesetzt.</p>
-        <p><b>4. Beziehungen festlegen:</b> Tippe andere Riegel kurz an. 1x Tippen = <b>grün / Gleich</b>, 2x Tippen = <b>rot / Gegen</b>, 3x Tippen = <b>leer / keine Wirkung</b>.</p>
-        <p><b>5. Schloss knacken:</b> Mit <b>Knacken</b> wird eine Lösung gesucht. Danach kannst du unten mit <b>Zurück</b> und <b>Weiter</b> Schritt für Schritt durchgehen.</p>
-        <p><b>6. Schrittanzeige:</b> Oben im Lösungsbereich wird nur <b>Schritt x/y</b> angezeigt. Wenn du den letzten Schritt erreicht hast und noch einmal auf <b>Weiter</b> drückst, erscheint <b>Fertig</b>.</p>
-        <p><b>7. Verlauf & gespeicherte Schlösser:</b> Gefundene Lösungen landen automatisch im Verlauf. Zusätzlich kannst du ein Schloss mit eigenem Namen speichern und später wieder laden.</p>
-        <p><b>8. Zurücksetzen:</b> <b>Schloss reset</b> setzt das ganze Schloss zurück. <b>Haken reset</b> springt die Schrittanzeige wieder an den Anfang der aktuellen Lösung.</p>
+        
+        <p><b>Riegel einstellen</b><br>Wähle zuerst die Anzahl der Riegel aus. Danach stellst du jeden Riegel so ein, wie er im Schloss steht. Der goldene Pin zeigt die Mitte.</p>
+        <p><b>Riegel fixieren</b><br>Halte einen Riegel kurz gedrückt, um ihn zu fixieren. Der fixierte Riegel wird mit <b>FIX</b> markiert.</p>
+        <p><b>Gleich / Gegen / Leer</b><br>Tippe die anderen Riegel an, um ihre Wirkung zum fixierten Riegel einzustellen.</p>
+        <p><b>1x tippen</b> = <b>Gleich</b> – bewegt sich in dieselbe Richtung.<br>
+        <b>2x tippen</b> = <b>Gegen</b> – bewegt sich in die entgegengesetzte Richtung.<br>
+        <b>3x tippen</b> = <b>Leer</b> – keine Wirkung.</p>
+        <p><b>Knacken</b><br>Wenn alles eingestellt ist, drücke auf <b>Knacken</b>. Danach kannst du die Lösung mit <b>Weiter</b> und <b>Zurück</b> Schritt für Schritt ansehen.</p>
+        <p><b>Speichern</b><br>Du kannst ein Schloss benennen, speichern und später wieder laden. Gespeichert wird die ursprüngliche Startstellung des Schlosses, auch wenn du die Lösung vorher animiert angesehen hast.</p>
+        <p><b>Wichtiger Hinweis</b><br>Gespeicherte Schlösser werden im Speicher deines Browsers oder deiner Web-App abgelegt. Sie bleiben nur zuverlässig erhalten, wenn du dieselbe Seite, dieselbe Webadresse oder dieselbe installierte Web-App verwendest. Wenn du den Browser wechselst, eine andere Adresse benutzt oder Website-Daten löschst, können gespeicherte Schlösser verloren gehen.</p>
+        <p><b>Reset</b><br><b>Schloss reset</b> setzt alles zurück.<br><b>Haken reset</b> setzt nur die Lösung und Schrittanzeige zurück.</p>
       </div>
     </details>
     <div class="langSwitch" aria-label="Sprache">
@@ -2338,6 +3602,25 @@ body::after{
       <div class="tapBtn" id="langEn">EN</div>
     </div>
 
+  </div>
+
+  <div class="panel box movedStorePanel">
+<details class="fold" style="margin-top:12px">
+      <summary id="savedSummary">Gespeicherte Schlösser</summary>
+      <div class="storeBox">
+        <div class="nameSearchWrap">
+          <div class="nameSearchIcon" aria-hidden="true">🔍</div>
+          <input id="saveName" placeholder="Name, z. B. Alte Mine Truhe 1" autocomplete="off">
+        </div>
+        <div class="tapBtn" data-action="saveNamedLock" id="saveBtn">Speichern</div>
+      </div>
+      <div id="savedList" class="savedList"></div>
+    </details>
+
+    <details class="fold" style="margin-top:12px">
+      <summary id="historySummary">Verlauf</summary>
+      <div id="historyList" class="historyList"></div>
+    </details>
   </div>
 
   <div class="panel box selectorPanel">
@@ -2351,24 +3634,12 @@ body::after{
   <div class="panel box">
     <div class="tapBtn big" data-action="solveLock" id="solveBtn">Knacken</div>
 
-    <details class="fold" style="margin-top:12px">
-      <summary id="savedSummary">Gespeicherte Schlösser</summary>
-      <div class="storeBox">
-        <input id="saveName" placeholder="Name, z. B. Alte Mine Truhe 1">
-        <div class="tapBtn" data-action="saveNamedLock" id="saveBtn">Speichern</div>
-      </div>
-      <div id="savedList" class="savedList"></div>
-    </details>
-
-    <details class="fold" style="margin-top:12px">
-      <summary id="historySummary">Verlauf</summary>
-      <div id="historyList" class="historyList"></div>
-    </details>
-
     <div class="resetRow">
       <div class="tapBtn reset" data-action="resetLock" id="resetLockBtn">Schloss reset</div>
       <div class="tapBtn reset" data-action="resetHooks" id="resetHooksBtn">Haken reset</div>
     </div>
+
+
     <div id="status" class="help" style="margin-top:5px"></div>
   </div>
   <div class="panel result">
@@ -2403,34 +3674,35 @@ const STORE_LANG='gothic_schlossknacker_lang_v51';
 let lang = localStorage.getItem(STORE_LANG) || 'de';
 const I18N={
   de:{
-    appTitleTop:'GOTHIC', appTitleBottom:'SCHLOSSKNACKER', docTitle:'Gothic Schlossknacker', help:'Hilfe', language:'Sprache:', rails:'Riegel:', calculate:'Knacken', saved:'Gespeicherte Schlösser', save:'Speichern', history:'Verlauf', resetLock:'Schloss reset', resetHooks:'Haken reset', prev:'Zurück', next:'Weiter', solutionList:'Lösungsliste', savePlaceholder:'Name, z. B. Alte Mine Truhe 1', notCalculated:'Noch nicht berechnet', noSaved:'Noch keine gespeicherten Schlösser.', noHistory:'Noch kein Verlauf.', noName:'Ohne Name', load:'Laden', delete:'Löschen', active:'Aktiv', rail:'Riegel', fixed:'fixiert', tapHint:'antippen', green:'1x grün', red:'2x rot', empty:'3x leer', drag:'ziehen = Position', longHold:'lang halten', fix:'fixieren', same:'Gleich', opposite:'Gegen', blank:'Leer', enterName:'Bitte erst einen Namen eingeben.', savedOk:'Schloss gespeichert.', hooksReset:'Haken zurückgesetzt.', lockReset:'Schloss zurückgesetzt.', calculating:'Berechne...', noSolution:'Keine Lösung gefunden', impossible:'Nicht lösbar', noSolutionStatus:'Für diese Eingabe wurde keine Lösung gefunden.', solutionFound:'Lösung gefunden und im Verlauf gespeichert.', step:'Schritt', done:'Fertig', left:'links', right:'rechts', historyTitle:'Verlauf', fixBadge:'FIX', helpHtml:`
-        <p><b>So benutzt du den Schlossknacker:</b></p>
-        <p><b>1. Riegelanzahl wählen:</b> Wähle zuerst die Anzahl der Riegel. Riegel 1 ist unten bzw. vorne, der höchste Riegel oben bzw. hinten.</p>
-        <p><b>2. Positionen setzen:</b> Ziehe jeden Riegel links oder rechts, bis die sichtbare Startposition stimmt. Der goldene Pin markiert die feste Stiftposition in der Mitte.</p>
-        <p><b>3. Aktiven Riegel fixieren:</b> Halte einen Riegel kurz gedrückt. Dieser Riegel wird als fixierter, aktiver Riegel gesetzt.</p>
-        <p><b>4. Beziehungen festlegen:</b> Tippe andere Riegel kurz an. 1x Tippen = <b>grün / Gleich</b>, 2x Tippen = <b>rot / Gegen</b>, 3x Tippen = <b>leer / keine Wirkung</b>.</p>
-        <p><b>5. Schloss knacken:</b> Mit <b>Knacken</b> wird eine Lösung gesucht. Danach kannst du unten mit <b>Zurück</b> und <b>Weiter</b> Schritt für Schritt durchgehen.</p>
-        <p><b>6. Schrittanzeige:</b> Oben im Lösungsbereich wird nur <b>Schritt x/y</b> angezeigt. Wenn du den letzten Schritt erreicht hast und noch einmal auf <b>Weiter</b> drückst, erscheint <b>Fertig</b>.</p>
-        <p><b>7. Verlauf & gespeicherte Schlösser:</b> Gefundene Lösungen landen automatisch im Verlauf. Zusätzlich kannst du ein Schloss mit eigenem Namen speichern und später wieder laden.</p>
-        <p><b>Wichtiger Speicher-Hinweis:</b> Gespeicherte Schlösser liegen im Browser- bzw. Web-App-Speicher. Sie bleiben nur zuverlässig erhalten, wenn du immer dieselbe Webadresse nutzt oder die Seite als Web-App vom Home-Bildschirm öffnest. Bei anderer Adresse, anderem Browser oder gelöschten Website-Daten können Speicherstände fehlen.</p>
-        <p><b>8. Zurücksetzen:</b> <b>Schloss reset</b> setzt das ganze Schloss zurück. <b>Haken reset</b> springt die Schrittanzeige wieder an den Anfang der aktuellen Lösung.</p>`},
+    appTitleTop:'SCHLOSSKNACKER', appTitleMiddle:'FÜR', appTitleBottom:'GOTHIC', docTitle:'Schlossknacker für Gothic', help:'Hilfe', language:'Sprache:', rails:'Riegel:', calculate:'Knacken', saved:'Gespeicherte Schlösser', save:'Speichern', history:'Verlauf', resetLock:'Schloss reset', resetHooks:'Haken reset', prev:'Zurück', next:'Weiter', solutionList:'Lösungsliste', savePlaceholder:'Name, z. B. Alte Mine Truhe 1', notCalculated:'Noch nicht berechnet', noSaved:'Noch keine gespeicherten Schlösser.', noHistory:'Noch kein Verlauf.', noName:'Ohne Name', load:'Laden', delete:'Löschen', active:'Aktiv', rail:'Riegel', fixed:'fixiert', tapHint:'antippen', green:'1x grün', red:'2x rot', empty:'3x leer', drag:'ziehen = Position', longHold:'lang halten', fix:'fixieren', same:'Gleich', opposite:'Gegen', blank:'Leer', enterName:'Bitte erst einen Namen eingeben.', savedOk:'Schloss gespeichert.', hooksReset:'Haken zurückgesetzt.', lockReset:'Schloss zurückgesetzt.', calculating:'Berechne...', noSolution:'Keine Lösung gefunden', impossible:'Nicht lösbar', noSolutionStatus:'Für diese Eingabe wurde keine Lösung gefunden.', solutionFound:'Lösung gefunden und im Verlauf gespeichert.', step:'Schritt', done:'Fertig', left:'links', right:'rechts', historyTitle:'Verlauf', fixBadge:'FIX', helpHtml:`
+        <p><b>Riegel einstellen</b><br>Wähle zuerst die Anzahl der Riegel aus. Danach stellst du jeden Riegel so ein, wie er im Schloss steht. Der goldene Pin zeigt die Mitte.</p>
+        <p><b>Riegel fixieren</b><br>Halte einen Riegel kurz gedrückt, um ihn zu fixieren. Der fixierte Riegel wird mit <b>FIX</b> markiert.</p>
+        <p><b>Gleich / Gegen / Leer</b><br>Tippe die anderen Riegel an, um ihre Wirkung zum fixierten Riegel einzustellen.</p>
+        <p><b>1x tippen</b> = <b>Gleich</b> – bewegt sich in dieselbe Richtung.<br>
+        <b>2x tippen</b> = <b>Gegen</b> – bewegt sich in die entgegengesetzte Richtung.<br>
+        <b>3x tippen</b> = <b>Leer</b> – keine Wirkung.</p>
+        <p><b>Knacken</b><br>Wenn alles eingestellt ist, drücke auf <b>Knacken</b>. Danach kannst du die Lösung mit <b>Weiter</b> und <b>Zurück</b> Schritt für Schritt ansehen.</p>
+        <p><b>Speichern</b><br>Du kannst ein Schloss benennen, speichern und später wieder laden. Gespeichert wird die ursprüngliche Startstellung des Schlosses, auch wenn du die Lösung vorher animiert angesehen hast.</p>
+        <p><b>Wichtiger Hinweis</b><br>Gespeicherte Schlösser werden im Speicher deines Browsers oder deiner Web-App abgelegt. Sie bleiben nur zuverlässig erhalten, wenn du dieselbe Seite, dieselbe Webadresse oder dieselbe installierte Web-App verwendest. Wenn du den Browser wechselst, eine andere Adresse benutzt oder Website-Daten löschst, können gespeicherte Schlösser verloren gehen.</p>
+        <p><b>Reset</b><br><b>Schloss reset</b> setzt alles zurück.<br><b>Haken reset</b> setzt nur die Lösung und Schrittanzeige zurück.</p>`},
   en:{
-    appTitleTop:'GOTHIC', appTitleBottom:'LOCKPICKER', docTitle:'Gothic Lockpicker', help:'Help', language:'Language:', rails:'Rails:', calculate:'Pick lock', saved:'Saved locks', save:'Save', history:'History', resetLock:'Reset lock', resetHooks:'Reset steps', prev:'Back', next:'Next', solutionList:'Solution list', savePlaceholder:'Name, e.g. Old Mine chest 1', notCalculated:'Not calculated yet', noSaved:'No saved locks yet.', noHistory:'No history yet.', noName:'No name', load:'Load', delete:'Delete', active:'Active', rail:'Rail', fixed:'fixed', tapHint:'tap', green:'1x green', red:'2x red', empty:'3x empty', drag:'drag = position', longHold:'long hold', fix:'fix', same:'Same', opposite:'Opposite', blank:'Empty', enterName:'Please enter a name first.', savedOk:'Lock saved.', hooksReset:'Steps reset.', lockReset:'Lock reset.', calculating:'Calculating...', noSolution:'No solution found', impossible:'Not solvable', noSolutionStatus:'No solution was found for this setup.', solutionFound:'Solution found and saved to history.', step:'Step', done:'Done', left:'left', right:'right', historyTitle:'History', fixBadge:'FIX', helpHtml:`
-        <p><b>How to use the lock picker:</b></p>
-        <p><b>1. Choose rail count:</b> Choose the number of rails first. Rail 1 is the lower/front rail; the highest rail is the upper/back rail.</p>
-        <p><b>2. Set positions:</b> Drag each rail left or right until the visible start position matches the lock. The golden pin marks the fixed center pin.</p>
-        <p><b>3. Fix the active rail:</b> Press and hold a rail briefly. This rail becomes the fixed active rail.</p>
-        <p><b>4. Set relations:</b> Tap the other rails. 1 tap = <b>green / Same</b>, 2 taps = <b>red / Opposite</b>, 3 taps = <b>empty / no effect</b>.</p>
-        <p><b>5. Pick lock:</b> Tap <b>Pick lock</b>. Then use <b>Back</b> and <b>Next</b> to walk through the solution step by step.</p>
-        <p><b>6. Step display:</b> The solution area shows <b>Step x/y</b>. After the last step, pressing <b>Next</b> once more shows <b>Done</b>.</p>
-        <p><b>7. History & saved locks:</b> Found solutions are added to history automatically. You can also save a lock with your own name and load it later.</p>
-        <p><b>Important save note:</b> Saved locks are stored in the browser or web-app storage. They only stay reliable if you always use the same web address or open the page as a Home Screen web app. If you use another address, another browser, or clear website data, saved locks may be missing.</p>
-        <p><b>8. Reset:</b> <b>Reset lock</b> resets the whole lock. <b>Reset steps</b> jumps back to the beginning of the current solution.</p>`}
+    appTitleTop:'LOCKPICKER', appTitleMiddle:'FOR', appTitleBottom:'GOTHIC', docTitle:'Lockpicker for Gothic', help:'Help', language:'Language:', rails:'Rails:', calculate:'Pick lock', saved:'Saved locks', save:'Save', history:'History', resetLock:'Reset lock', resetHooks:'Reset steps', prev:'Back', next:'Next', solutionList:'Solution list', savePlaceholder:'Name, e.g. Old Mine chest 1', notCalculated:'Not calculated yet', noSaved:'No saved locks yet.', noHistory:'No history yet.', noName:'No name', load:'Load', delete:'Delete', active:'Active', rail:'Rail', fixed:'fixed', tapHint:'tap', green:'1x green', red:'2x red', empty:'3x empty', drag:'drag = position', longHold:'long hold', fix:'fix', same:'Same', opposite:'Opposite', blank:'Empty', enterName:'Please enter a name first.', savedOk:'Lock saved.', hooksReset:'Steps reset.', lockReset:'Lock reset.', calculating:'Calculating...', noSolution:'No solution found', impossible:'Not solvable', noSolutionStatus:'No solution was found for this setup.', solutionFound:'Solution found and saved to history.', step:'Step', done:'Done', left:'left', right:'right', historyTitle:'History', fixBadge:'FIX', helpHtml:`
+        <p><b>Set rails</b><br>First choose the number of rails. Then set each rail to match the lock. The golden pin shows the center.</p>
+        <p><b>Fix a rail</b><br>Press and hold a rail briefly to fix it. The fixed rail is marked with <b>FIX</b>.</p>
+        <p><b>Same / Opposite / Empty</b><br>Tap the other rails to set how they react to the fixed rail.</p>
+        <p><b>1 tap</b> = <b>Same</b> – moves in the same direction.<br>
+        <b>2 taps</b> = <b>Opposite</b> – moves in the opposite direction.<br>
+        <b>3 taps</b> = <b>Empty</b> – no effect.</p>
+        <p><b>Pick lock</b><br>When everything is set, tap <b>Pick lock</b>. Then use <b>Next</b> and <b>Back</b> to view the solution step by step.</p>
+        <p><b>Save</b><br>You can name a lock, save it, and load it again later. The original start position is saved, even if you already viewed the animated solution.</p>
+        <p><b>Important note</b><br>Saved locks are stored in your browser or web-app storage. They only remain reliable if you use the same page, the same web address, or the same installed web app. If you change browsers, use another address, or delete website data, saved locks may be lost.</p>
+        <p><b>Reset</b><br><b>Reset lock</b> resets everything.<br><b>Reset steps</b> resets only the solution and step display.</p>`}
 };
 function t(key){ return (I18N[lang] && I18N[lang][key]) || I18N.de[key] || key; }
 function setText(id, value){ const el=document.getElementById(id); if(el) el.textContent=value; }
 function applyLanguage(){
   setText('appTitleTop', t('appTitleTop'));
+  setText('appTitleMiddle', t('appTitleMiddle'));
   setText('appTitleBottom', t('appTitleBottom'));
   document.title = t('docTitle');
   setText('helpSummary', t('help'));
@@ -2568,7 +3840,13 @@ function removeDemoLock(){
   }
 }
 function renderStores(){
-  renderStoreList('savedList', readStore(STORE_SAVED), true);
+  const search=(document.getElementById('saveName')?.value || '').trim().toLowerCase();
+  const saved=readStore(STORE_SAVED).filter(item=>{
+    if(!search) return true;
+    const haystack=[item.name || t('noName'), describeSnapshot(item)].join(' ').toLowerCase();
+    return haystack.includes(search);
+  });
+  renderStoreList('savedList', saved, true);
   renderStoreList('historyList', readStore(STORE_HISTORY), false);
 }
 function renderStoreList(id, items, named){
@@ -2645,7 +3923,7 @@ function renderAll(){
     row.className='railRow';
 
     const card=document.createElement('div');
-    card.className='railCard' + (i===activeRow ? '' : rel===1 ? ' same' : rel===-1 ? ' opp' : '');
+    card.className='railCard' + (i===activeRow ? ' fixed' : rel===1 ? ' same' : rel===-1 ? ' opp' : '');
     const badgeClass = i===activeRow ? '' : rel===1 ? 'same' : rel===-1 ? 'opp' : '';
     const badgeText = i===activeRow ? t('fixBadge') : relationLabel(rel);
     card.innerHTML=`
@@ -2999,15 +4277,500 @@ function nextStepFn(){
   updateStep();
 }
 
+
+/* PATCH ChatGPT Index 5: animierte Lösungsschritte */
+let solutionAnimating = false;
+let solutionStartState = null;
+
+function computeAnimatedBarLeft(idx, pos){
+  const vp=document.getElementById('viewport'+idx);
+  const bar=document.getElementById('bar'+idx);
+  if(!vp || !bar) return null;
+
+  const vpW=vp.clientWidth;
+  const barW=parseFloat(bar.style.width) || Math.round(Math.max(210, Math.min(285, vpW * 0.66)));
+  const margin=18;
+  const usable=barW - margin*2;
+  const step=usable/6;
+  const centerX=Math.round(vpW/2);
+  const baseLeft=Math.round(centerX - Math.round(margin + 3*step));
+
+  return Math.round(baseLeft + (4-pos)*step);
+}
+
+function applyCompactMoveToState(state, move, reverse=false){
+  let next=state.slice();
+  const dirText = reverse
+    ? (move.dir === 'links' ? 'rechts' : 'links')
+    : move.dir;
+  const dirNum = dirText === 'links' ? -1 : 1;
+
+  for(let k=0;k<(move.count || 1);k++){
+    const moved=applyMove(next, move.r-1, dirNum);
+    if(!moved) return next;
+    next=moved;
+  }
+  return next;
+}
+
+function animateToState(nextState, done){
+  const oldState=rows.map(r=>r.start);
+  document.body.classList.add('solutionAnimating');
+
+  for(let i=0;i<count;i++){
+    if(oldState[i] === nextState[i]) continue;
+    const bar=document.getElementById('bar'+i);
+    const left=computeAnimatedBarLeft(i, nextState[i]);
+    if(bar && left!==null){
+      bar.style.left=left+'px';
+    }
+  }
+
+  window.setTimeout(()=>{
+    rows=nextState.map(p=>({start:p}));
+    document.body.classList.remove('solutionAnimating');
+    renderAll();
+    if(typeof done === 'function') done();
+  }, 310);
+}
+
+function solveLock(){
+  const start=rows.map(r=>r.start);
+  const target=Array(count).fill(4);
+  document.getElementById('status').textContent=t('calculating');
+  setTimeout(()=>{
+    const res=solveBidirectional(start,target);
+    if(!res){
+      clearResult();
+      document.getElementById('resMeta').textContent=t('noSolution');
+      document.getElementById('currentStep').textContent=t('impossible');
+      document.getElementById('status').textContent=t('noSolutionStatus');
+      return;
+    }
+    fullSolution=res.moves;
+    compactSolution=compactMoves(fullSolution);
+    stepIndex=0;
+    finishedStep=false;
+    solutionStartState=start.slice();
+    lastSolvedSnapshot=makeSnapshot('');
+    addHistory(lastSolvedSnapshot);
+    renderSolution(res.visitedCount);
+    document.getElementById('status').textContent=t('solutionFound');
+  },20);
+}
+
+function getDoneStepCount(){
+  if(!compactSolution.length) return 0;
+  return Math.min(stepIndex, compactSolution.length);
+}
+
+function updateResMeta(){
+  const meta=document.getElementById('resMeta');
+  if(!compactSolution.length){
+    meta.textContent=t('notCalculated');
+    return;
+  }
+  const total=compactSolution.length;
+  const done=Math.min(stepIndex, total);
+  meta.textContent=`${t('step')} ${done}/${total}`;
+}
+
+function updateStep(){
+  const big=document.getElementById('currentStep');
+  if(!compactSolution.length){
+    big.textContent='—';
+    updateResMeta();
+    return;
+  }
+
+  if(stepIndex >= compactSolution.length || finishedStep){
+    big.textContent=t('done');
+    finishedStep=true;
+  }else{
+    finishedStep=false;
+    big.textContent=moveText(compactSolution[stepIndex]);
+  }
+
+  updateResMeta();
+
+  [...document.querySelectorAll('#stepsList .item')].forEach((el,i)=>{
+    const active=!finishedStep && i===stepIndex;
+    el.style.outline=active ? '2px solid #c06748' : 'none';
+    el.style.opacity=active ? '1' : '.86';
+  });
+}
+
+function renderSolution(visited){
+  const list=document.getElementById('stepsList');
+  list.innerHTML='';
+  finishedStep=false;
+  const fold=document.getElementById('solutionFold');
+  if(fold) fold.open=false;
+  compactSolution.forEach((m,i)=>{
+    const div=document.createElement('div');
+    div.className='item';
+    div.textContent=moveText(m);
+    div.onclick=()=>{
+      if(solutionAnimating) return;
+      stepIndex=i;
+      finishedStep=false;
+      updateStep();
+    };
+    list.appendChild(div);
+  });
+  updateStep();
+}
+
+function nextStepFn(){
+  if(!compactSolution.length || solutionAnimating) return;
+
+  if(stepIndex >= compactSolution.length){
+    finishedStep=true;
+    updateStep();
+    return;
+  }
+
+  solutionAnimating=true;
+  const move=compactSolution[stepIndex];
+  const currentState=rows.map(r=>r.start);
+  const nextState=applyCompactMoveToState(currentState, move, false);
+
+  animateToState(nextState, ()=>{
+    stepIndex++;
+    finishedStep = stepIndex >= compactSolution.length;
+    solutionAnimating=false;
+    updateStep();
+  });
+}
+
+function prevStep(){
+  if(!compactSolution.length || solutionAnimating) return;
+
+  if(finishedStep){
+    finishedStep=false;
+  }
+
+  if(stepIndex <= 0){
+    updateStep();
+    return;
+  }
+
+  solutionAnimating=true;
+  const move=compactSolution[stepIndex-1];
+  const currentState=rows.map(r=>r.start);
+  const prevState=applyCompactMoveToState(currentState, move, true);
+
+  animateToState(prevState, ()=>{
+    stepIndex--;
+    finishedStep=false;
+    solutionAnimating=false;
+    updateStep();
+  });
+}
+
+function resetHooks(){
+  if(solutionAnimating) return;
+  stepIndex=0;
+  finishedStep=false;
+  if(solutionStartState && solutionStartState.length===count){
+    rows=solutionStartState.map(p=>({start:p}));
+    renderAll();
+  }
+  updateStep();
+  document.getElementById('status').textContent=t('hooksReset');
+}
+
+function clearResult(){
+  fullSolution=[];
+  compactSolution=[];
+  stepIndex=0;
+  finishedStep=false;
+  solutionStartState=null;
+  document.getElementById('resMeta').textContent=t('notCalculated');
+  document.getElementById('currentStep').textContent='—';
+  document.getElementById('stepsList').innerHTML='';
+  document.getElementById('status').textContent='';
+}
+
+
+
+/* PATCH ChatGPT Index 6: Der jeweils bewegte Riegel wird während der Animation fixiert/blau */
+function setActiveRailForCurrentStep(){
+  if(compactSolution.length && stepIndex < compactSolution.length && !finishedStep){
+    const m=compactSolution[stepIndex];
+    if(m && Number.isFinite(m.r)){
+      activeRow=Math.max(0, Math.min(count-1, m.r-1));
+    }
+  }
+}
+
+function updateStep(){
+  const big=document.getElementById('currentStep');
+  if(!compactSolution.length){
+    big.textContent='—';
+    updateResMeta();
+    return;
+  }
+
+  if(stepIndex >= compactSolution.length || finishedStep){
+    big.textContent=t('done');
+    finishedStep=true;
+  }else{
+    finishedStep=false;
+    setActiveRailForCurrentStep();
+    big.textContent=moveText(compactSolution[stepIndex]);
+  }
+
+  updateResMeta();
+
+  [...document.querySelectorAll('#stepsList .item')].forEach((el,i)=>{
+    const active=!finishedStep && i===stepIndex;
+    el.style.outline=active ? '2px solid #c06748' : 'none';
+    el.style.opacity=active ? '1' : '.86';
+  });
+}
+
+function nextStepFn(){
+  if(!compactSolution.length || solutionAnimating) return;
+
+  if(stepIndex >= compactSolution.length){
+    finishedStep=true;
+    updateStep();
+    return;
+  }
+
+  solutionAnimating=true;
+  const move=compactSolution[stepIndex];
+  const currentState=rows.map(r=>r.start);
+  const nextState=applyCompactMoveToState(currentState, move, false);
+
+  /* Der Riegel, der laut Schritt bewegt wird, wird sofort FIX/blau */
+  activeRow=Math.max(0, Math.min(count-1, move.r-1));
+  renderAll();
+
+  requestAnimationFrame(()=>{
+    animateToState(nextState, ()=>{
+      stepIndex++;
+      finishedStep = stepIndex >= compactSolution.length;
+
+      if(!finishedStep){
+        setActiveRailForCurrentStep();
+      }
+
+      solutionAnimating=false;
+      renderAll();
+      updateStep();
+    });
+  });
+}
+
+function prevStep(){
+  if(!compactSolution.length || solutionAnimating) return;
+
+  if(finishedStep){
+    finishedStep=false;
+  }
+
+  if(stepIndex <= 0){
+    updateStep();
+    return;
+  }
+
+  solutionAnimating=true;
+  const move=compactSolution[stepIndex-1];
+  const currentState=rows.map(r=>r.start);
+  const prevState=applyCompactMoveToState(currentState, move, true);
+
+  /* Beim Zurück wird ebenfalls genau der rückwärts bewegte Riegel FIX/blau */
+  activeRow=Math.max(0, Math.min(count-1, move.r-1));
+  renderAll();
+
+  requestAnimationFrame(()=>{
+    animateToState(prevState, ()=>{
+      stepIndex--;
+      finishedStep=false;
+
+      if(compactSolution.length && stepIndex < compactSolution.length){
+        setActiveRailForCurrentStep();
+      }
+
+      solutionAnimating=false;
+      renderAll();
+      updateStep();
+    });
+  });
+}
+
+function renderSolution(visited){
+  const list=document.getElementById('stepsList');
+  list.innerHTML='';
+  finishedStep=false;
+  const fold=document.getElementById('solutionFold');
+  if(fold) fold.open=false;
+
+  if(compactSolution.length){
+    stepIndex=0;
+    setActiveRailForCurrentStep();
+    renderAll();
+  }
+
+  compactSolution.forEach((m,i)=>{
+    const div=document.createElement('div');
+    div.className='item';
+    div.textContent=moveText(m);
+    div.onclick=()=>{
+      if(solutionAnimating) return;
+      stepIndex=i;
+      finishedStep=false;
+      setActiveRailForCurrentStep();
+      renderAll();
+      updateStep();
+    };
+    list.appendChild(div);
+  });
+  updateStep();
+}
+
+
 preventButtonJump();
 document.getElementById('langDe')?.addEventListener('pointerup', e=>{e.preventDefault(); setLang('de');});
 document.getElementById('langEn')?.addEventListener('pointerup', e=>{e.preventDefault(); setLang('en');});
+document.getElementById('saveName')?.addEventListener('input', ()=>renderStores());
 initData(count);
 buildCountButtons();
 renderAll();
 removeDemoLock();
 renderStores();
 applyLanguage();
+
+/* PATCH ChatGPT Index 18: Lösungsliste springt animiert zur korrekten Schritt-Position */
+function getSolutionStateAtStep(targetStep){
+  const max=compactSolution.length;
+  const n=Math.max(0, Math.min(max, targetStep));
+  let state;
+
+  if(solutionStartState && solutionStartState.length===count){
+    state=solutionStartState.slice();
+  }else{
+    state=rows.map(r=>r.start);
+  }
+
+  for(let i=0;i<n;i++){
+    state=applyCompactMoveToState(state, compactSolution[i], false);
+  }
+
+  return state;
+}
+
+function sameSolutionState(a,b){
+  if(!a || !b || a.length!==b.length) return false;
+  for(let i=0;i<a.length;i++){
+    if(a[i]!==b[i]) return false;
+  }
+  return true;
+}
+
+function jumpToSolutionStep(targetStep){
+  if(!compactSolution.length || solutionAnimating) return;
+
+  const max=compactSolution.length;
+  const target=Math.max(0, Math.min(max-1, targetStep));
+  const targetState=getSolutionStateAtStep(target);
+  const currentState=rows.map(r=>r.start);
+
+  finishedStep=false;
+  stepIndex=target;
+
+  if(compactSolution[target]){
+    activeRow=Math.max(0, Math.min(count-1, compactSolution[target].r-1));
+  }
+
+  renderAll();
+  updateStep();
+
+  if(sameSolutionState(currentState,targetState)){
+    rows=targetState.map(p=>({start:p}));
+    renderAll();
+    updateStep();
+    return;
+  }
+
+  solutionAnimating=true;
+
+  requestAnimationFrame(()=>{
+    animateToState(targetState, ()=>{
+      stepIndex=target;
+      finishedStep=false;
+
+      if(compactSolution[target]){
+        activeRow=Math.max(0, Math.min(count-1, compactSolution[target].r-1));
+      }
+
+      solutionAnimating=false;
+      renderAll();
+      updateStep();
+    });
+  });
+}
+
+/* RenderSolution final überschreiben:
+   Klick auf eine Zeile stellt jetzt erst alle vorherigen Schritte her,
+   damit der Riegel exakt an der richtigen Position steht. */
+function renderSolution(visited){
+  const list=document.getElementById('stepsList');
+  list.innerHTML='';
+  finishedStep=false;
+  const fold=document.getElementById('solutionFold');
+  if(fold) fold.open=false;
+
+  if(compactSolution.length){
+    stepIndex=0;
+    if(solutionStartState && solutionStartState.length===count){
+      rows=solutionStartState.map(p=>({start:p}));
+    }
+    setActiveRailForCurrentStep();
+    renderAll();
+  }
+
+  compactSolution.forEach((m,i)=>{
+    const div=document.createElement('div');
+    div.className='item';
+    div.textContent=moveText(m);
+    div.onclick=()=>jumpToSolutionStep(i);
+    list.appendChild(div);
+  });
+
+  updateStep();
+}
+
+
+
+/* PATCH ChatGPT Index 19: Speichern nutzt ursprüngliche Schlossstellung vor der Animation */
+function getSnapshotRowsForSave(){
+  if(solutionStartState && solutionStartState.length===count){
+    return solutionStartState.map(p=>({start:p}));
+  }
+  return rows.map(r=>({start:r.start}));
+}
+
+function getSnapshotActiveRowForSave(){
+  return 0;
+}
+
+function makeSnapshot(name=''){
+  return {
+    id:Date.now(),
+    name:name,
+    count:count,
+    rows:getSnapshotRowsForSave(),
+    effects:effects.map(a=>a.slice()),
+    activeRow:getSnapshotActiveRowForSave(),
+    time:new Date().toLocaleTimeString(lang==='en'?'en-US':'de-DE',{hour:'2-digit',minute:'2-digit'}),
+    date:new Date().toLocaleDateString(lang==='en'?'en-US':'de-DE')
+  };
+}
+
+
 </script>
 </body>
 </html>
