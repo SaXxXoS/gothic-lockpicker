@@ -3,7 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Schlossknacker für Gothic</title>
+<meta name="description" content="Kostenloser Schlossknacker für Gothic: Riegel einstellen, Wirkungen festlegen und eine Schritt-für-Schritt-Lösung für Schlösser berechnen.">
+<meta name="keywords" content="Schlossknacker Gothic, Gothic Schloss knacken, Gothic Lockpicker, Gothic Schlösser, Gothic Lösung, Gothic Dietrich">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Schlossknacker für Gothic – Gothic Lockpicker Online">
+<meta property="og:description" content="Kostenloser Schlossknacker für Gothic: Riegel einstellen, Wirkungen festlegen und eine Schritt-für-Schritt-Lösung für Schlösser berechnen.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Schlossknacker für Gothic – Gothic Lockpicker Online">
+<meta name="twitter:description" content="Kostenloser Schlossknacker für Gothic: Riegel einstellen, Wirkungen festlegen und eine Schritt-für-Schritt-Lösung für Schlösser berechnen.">
+<script type="application/ld+json" id="seo-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Schlossknacker für Gothic",
+  "alternateName": "Gothic Lockpicker",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Any",
+  "description": "Kostenloser Schlossknacker für Gothic: Riegel einstellen, Wirkungen festlegen und eine Schritt-für-Schritt-Lösung für Schlösser berechnen.",
+  "inLanguage": [
+    "de",
+    "en"
+  ],
+  "isAccessibleForFree": true
+}
+
+/* PATCH ChatGPT GitHub v3: SEO-Text sicher übersetzen */
+function updateSeoTextLanguage(){
+  const h=document.getElementById('seoHeading');
+  const p=document.getElementById('seoDescription');
+  const block=document.getElementById('seoTextBlock');
+
+  if(h) h.textContent=t('seoHeading');
+  if(p) p.textContent=t('seoDescription');
+  if(block) block.setAttribute('aria-label', lang==='en' ? 'Description' : 'Beschreibung');
+}
+
+const __oldApplyLanguageSeoV3 = typeof applyLanguage === 'function' ? applyLanguage : null;
+if(__oldApplyLanguageSeoV3){
+  applyLanguage = function(){
+    __oldApplyLanguageSeoV3();
+    updateSeoTextLanguage();
+  };
+}
+
+window.addEventListener('load', updateSeoTextLanguage);
+
+</script>
+
+<title>Schlossknacker für Gothic – Gothic Lockpicker Online</title>
 <style>
 :root{
   --bg:#0b0807;
@@ -3564,6 +3612,651 @@ body.solutionAnimating .tapBtn{
 }
 
 
+
+/* PATCH ChatGPT Index 26: Anzeige für nächsten Riegel, ohne Eingriff in die Hauptfunktionen */
+.nextPreview{
+  margin:-4px 0 7px 0;
+  min-height:20px;
+  text-align:center;
+  font-size:13px;
+  font-weight:700;
+  color:#d6c29a;
+  opacity:.9;
+  text-shadow:0 1px 0 #000;
+}
+
+
+
+/* PATCH ChatGPT Index 27: Auto-Funktion als Zusatz, ohne Hauptfunktionen zu überschreiben */
+.autoBox{
+  margin:0 0 8px 0;
+  padding:8px 9px;
+  border:1px solid rgba(138,106,79,.62);
+  border-radius:8px;
+  background:rgba(8,5,4,.36);
+}
+
+.autoTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:6px;
+}
+
+#autoLabel{
+  color:#ead7b4;
+  font-size:13px;
+  font-weight:700;
+}
+
+.autoBtn{
+  min-width:78px;
+  text-align:center;
+  padding:7px 10px !important;
+}
+
+.autoBtn.running{
+  border-color:#b65c4e !important;
+  color:#ffe3dc !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.22)),
+    linear-gradient(180deg, #6f281f 0%, #2b100d 100%) !important;
+}
+
+.autoRangeWrap{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+#autoSpeedText{
+  color:#d6c29a;
+  font-size:12px;
+}
+
+#autoDelay{
+  width:100%;
+}
+
+
+
+/* PATCH ChatGPT Index 31: Auto-Zeitregler im Gothic-Look */
+#autoDelay{
+  -webkit-appearance:none !important;
+  appearance:none !important;
+  width:100% !important;
+  height:18px !important;
+  border-radius:999px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.28)),
+    linear-gradient(180deg, #2a1b14 0%, #100907 100%) !important;
+  border:1px solid rgba(138,106,79,.78) !important;
+  box-shadow:
+    inset 0 1px 2px rgba(255,235,190,.08),
+    inset 0 -1px 2px rgba(0,0,0,.55),
+    0 1px 4px rgba(0,0,0,.38) !important;
+  outline:none !important;
+  padding:0 !important;
+}
+
+#autoDelay::-webkit-slider-runnable-track{
+  height:18px !important;
+  border-radius:999px !important;
+  background:transparent !important;
+  border:none !important;
+}
+
+#autoDelay::-webkit-slider-thumb{
+  -webkit-appearance:none !important;
+  appearance:none !important;
+  width:28px !important;
+  height:28px !important;
+  margin-top:-6px !important;
+  border-radius:999px !important;
+  border:1px solid rgba(238,210,155,.82) !important;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,240,190,.55), rgba(255,240,190,0) 38%),
+    linear-gradient(180deg, #9a6a3d 0%, #4b2818 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,245,210,.20),
+    inset 0 -2px 2px rgba(0,0,0,.38),
+    0 0 0 2px rgba(25,14,10,.80),
+    0 2px 7px rgba(0,0,0,.55) !important;
+}
+
+#autoDelay::-moz-range-track{
+  height:18px !important;
+  border-radius:999px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.28)),
+    linear-gradient(180deg, #2a1b14 0%, #100907 100%) !important;
+  border:1px solid rgba(138,106,79,.78) !important;
+}
+
+#autoDelay::-moz-range-thumb{
+  width:28px !important;
+  height:28px !important;
+  border-radius:999px !important;
+  border:1px solid rgba(238,210,155,.82) !important;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,240,190,.55), rgba(255,240,190,0) 38%),
+    linear-gradient(180deg, #9a6a3d 0%, #4b2818 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,245,210,.20),
+    inset 0 -2px 2px rgba(0,0,0,.38),
+    0 0 0 2px rgba(25,14,10,.80),
+    0 2px 7px rgba(0,0,0,.55) !important;
+}
+
+#autoDelay:active::-webkit-slider-thumb{
+  transform:scale(1.06);
+}
+
+#autoDelay:active::-moz-range-thumb{
+  transform:scale(1.06);
+}
+
+
+
+/* PATCH ChatGPT Index 32_neu: Zeitleiste und Start-Knopf in einer Zeile */
+.autoInline{
+  display:flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  margin:0 0 8px 0 !important;
+  padding:7px 8px !important;
+}
+
+.autoInlineRange{
+  flex:1 !important;
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:5px !important;
+}
+
+.autoInlineRange #autoSpeedText{
+  font-size:12px !important;
+  line-height:1 !important;
+  margin:0 !important;
+}
+
+.autoInline .autoBtn{
+  flex:0 0 90px !important;
+  min-width:90px !important;
+  height:42px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 8px !important;
+  font-size:16px !important;
+  margin-top:15px !important;
+}
+
+.autoInline #autoDelay{
+  width:100% !important;
+}
+
+@media (max-width:420px){
+  .autoInline{
+    gap:7px !important;
+    padding-left:7px !important;
+    padding-right:7px !important;
+  }
+
+  .autoInline .autoBtn{
+    flex-basis:80px !important;
+    min-width:80px !important;
+    font-size:15px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT Index 33_neu: Rahmen um Auto-Zeile entfernen */
+.autoInline{
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  padding:3px 0 7px 0 !important;
+}
+
+/* Rahmen/Box vom Zeitbereich entfernen, Regler selbst bleibt im Gothic-Look */
+.autoInlineRange{
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+/* Start-Knopf ohne äußeren Rahmen/Box, aber als Button weiterhin erkennbar */
+.autoInline .autoBtn{
+  box-shadow:none !important;
+}
+
+
+
+/* PATCH ChatGPT Index 34_neu: Display niedriger, Schriftgröße bleibt gleich */
+.currentStep{
+  min-height:54px !important;
+  height:54px !important;
+  max-height:54px !important;
+  padding-top:3px !important;
+  padding-bottom:3px !important;
+  align-items:center !important;
+}
+
+.nextPreview{
+  margin:-5px 0 4px 0 !important;
+  min-height:18px !important;
+}
+
+
+
+/* PATCH ChatGPT Index 35_neu: Zurück/Weiter als Pfeile direkt am Display */
+.stepDisplayWrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.stepDisplayWrap .currentStep{
+  flex:1;
+  min-width:0;
+  padding-left:4px !important;
+  padding-right:4px !important;
+}
+
+.stepArrow{
+  flex:0 0 38px;
+  width:38px;
+  height:54px;
+  min-height:54px;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+  font-size:34px !important;
+  line-height:1 !important;
+  font-weight:900 !important;
+  color:#f0dfb8 !important;
+  text-shadow:0 2px 0 #000;
+  border-radius:8px !important;
+}
+
+.stepArrowLeft{
+  margin-right:0;
+}
+
+.stepArrowRight{
+  margin-left:0;
+}
+
+/* Alte Zurück/Weiter-Leiste ausblenden, Funktion bleibt über die Pfeile erhalten */
+.result > .nav{
+  display:none !important;
+}
+
+@media (max-width:420px){
+  .stepArrow{
+    flex-basis:34px;
+    width:34px;
+    height:52px;
+    min-height:52px;
+    font-size:31px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT Index 36_neu: Displayrand links/rechts als unsichtbare Zurück/Weiter-Flächen */
+.stepDisplayWrap{
+  position:relative !important;
+  display:block !important;
+}
+
+.stepDisplayWrap .currentStep{
+  width:100% !important;
+  box-sizing:border-box !important;
+  padding-left:42px !important;
+  padding-right:42px !important;
+}
+
+/* Pfeile ohne Rahmen, ohne Button-Fläche */
+.stepArrow{
+  position:absolute !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:42px !important;
+  height:auto !important;
+  min-height:0 !important;
+  z-index:5 !important;
+
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  outline:none !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  padding:0 !important;
+  margin:0 !important;
+  border-radius:0 !important;
+
+  color:rgba(240,223,184,.82) !important;
+  font-size:34px !important;
+  line-height:1 !important;
+  font-weight:900 !important;
+  text-shadow:0 2px 0 #000, 0 0 5px rgba(0,0,0,.65) !important;
+}
+
+.stepArrowLeft{
+  left:0 !important;
+}
+
+.stepArrowRight{
+  right:0 !important;
+}
+
+.stepArrow:active{
+  color:#fff1d3 !important;
+  transform:scale(1.08);
+}
+
+/* Alte Button-Optik auch bei globalen tapBtn-Regeln überschreiben */
+.stepArrow.tapBtn,
+.stepArrow.tapBtn:hover,
+.stepArrow.tapBtn:active{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+@media (max-width:420px){
+  .stepDisplayWrap .currentStep{
+    padding-left:36px !important;
+    padding-right:36px !important;
+  }
+
+  .stepArrow{
+    width:36px !important;
+    font-size:31px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT Index 37_neu: Tippbereiche links/rechts bis an die Schrift vergrößern */
+.stepDisplayWrap .currentStep{
+  padding-left:72px !important;
+  padding-right:72px !important;
+}
+
+/* Der unsichtbare Tippbereich geht jetzt vom Displayrand bis nahe zur Schrift */
+.stepArrow{
+  width:72px !important;
+}
+
+.stepArrowLeft{
+  left:0 !important;
+  justify-content:flex-start !important;
+  padding-left:10px !important;
+}
+
+.stepArrowRight{
+  right:0 !important;
+  justify-content:flex-end !important;
+  padding-right:10px !important;
+}
+
+@media (max-width:420px){
+  .stepDisplayWrap .currentStep{
+    padding-left:62px !important;
+    padding-right:62px !important;
+  }
+
+  .stepArrow{
+    width:62px !important;
+  }
+
+  .stepArrowLeft{
+    padding-left:8px !important;
+  }
+
+  .stepArrowRight{
+    padding-right:8px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT Index 38_neu: Tippbereiche größer, fast bis zur Auto-Zeile */
+.stepDisplayWrap{
+  overflow:visible !important;
+}
+
+/* Klickflächen links/rechts breiter und nach unten verlängert */
+.stepArrow{
+  width:92px !important;
+  bottom:-42px !important;
+}
+
+/* Text bleibt frei in der Mitte */
+.stepDisplayWrap .currentStep{
+  padding-left:88px !important;
+  padding-right:88px !important;
+}
+
+.stepArrowLeft{
+  padding-left:10px !important;
+}
+
+.stepArrowRight{
+  padding-right:10px !important;
+}
+
+/* Vorschau darf unter den unsichtbaren Tippflächen liegen */
+.nextPreview{
+  position:relative !important;
+  z-index:1 !important;
+}
+
+/* Auto-Zeile bleibt über den Tippflächen, damit der Start-Knopf nicht blockiert wird */
+.autoInline{
+  position:relative !important;
+  z-index:10 !important;
+}
+
+@media (max-width:420px){
+  .stepArrow{
+    width:78px !important;
+    bottom:-38px !important;
+  }
+
+  .stepDisplayWrap .currentStep{
+    padding-left:76px !important;
+    padding-right:76px !important;
+  }
+}
+
+
+
+/* PATCH ChatGPT Index 42_neu: Zeitleiste dünner, nicht kürzer */
+.autoInline #autoDelay{
+  height:12px !important;
+  border-radius:999px !important;
+}
+
+/* WebKit / iPhone Safari */
+.autoInline #autoDelay::-webkit-slider-runnable-track{
+  height:12px !important;
+  border-radius:999px !important;
+}
+
+.autoInline #autoDelay::-webkit-slider-thumb{
+  width:24px !important;
+  height:24px !important;
+  margin-top:-6px !important;
+}
+
+/* Firefox */
+.autoInline #autoDelay::-moz-range-track{
+  height:12px !important;
+  border-radius:999px !important;
+}
+
+.autoInline #autoDelay::-moz-range-thumb{
+  width:24px !important;
+  height:24px !important;
+}
+
+/* Knopf etwas niedriger, aber nicht schmaler machen */
+.autoInline .autoBtn{
+  height:36px !important;
+  font-size:15px !important;
+  margin-top:12px !important;
+}
+
+
+
+/* PATCH ChatGPT Index 47_neu: Zeitleiste und Auto-Knopf noch dünner */
+.autoInline{
+  padding-top:1px !important;
+  padding-bottom:5px !important;
+}
+
+/* Zeitleiste dünner */
+.autoInline #autoDelay{
+  height:9px !important;
+}
+
+.autoInline #autoDelay::-webkit-slider-runnable-track{
+  height:9px !important;
+}
+
+.autoInline #autoDelay::-moz-range-track{
+  height:9px !important;
+}
+
+/* Regler-Kugel kleiner */
+.autoInline #autoDelay::-webkit-slider-thumb{
+  width:20px !important;
+  height:20px !important;
+  margin-top:-5.5px !important;
+}
+
+.autoInline #autoDelay::-moz-range-thumb{
+  width:20px !important;
+  height:20px !important;
+}
+
+/* Auto-Knopf dünner/niedriger */
+.autoInline .autoBtn{
+  height:32px !important;
+  min-height:32px !important;
+  font-size:14px !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+  margin-top:10px !important;
+}
+
+/* Zeittext etwas kompakter */
+.autoInlineRange #autoSpeedText{
+  font-size:10.5px !important;
+  line-height:1 !important;
+}
+
+
+
+/* PATCH ChatGPT Index 60_neu: Index-57-Pfeil größer und auffälliger */
+.stepArrowText{
+  display:inline-block;
+  color:#fff6dd;
+  font-size:1.42em;
+  font-weight:900;
+  line-height:0;
+  transform:scaleX(1.22);
+  vertical-align:-0.06em;
+  margin:0 .03em;
+  text-shadow:
+    0 1px 0 #000,
+    0 0 2px rgba(255,255,255,.35),
+    0 0 5px rgba(255,230,170,.16);
+}
+
+
+/* PATCH ChatGPT Index 61_neu: Pfeil fetter, aber nicht länger */
+.stepArrowText{
+  font-size:1.42em !important;
+  font-weight:900 !important;
+  transform:scaleX(1.12) !important;
+  text-shadow:
+    0 1px 0 #000,
+    0 0 1px rgba(255,255,255,.45),
+    0 0 2px rgba(255,255,255,.35),
+    0.35px 0 0 #fff6dd,
+    -0.35px 0 0 #fff6dd,
+    0 0.35px 0 #fff6dd,
+    0 -0.35px 0 #fff6dd !important;
+}
+
+
+
+/* PATCH ChatGPT Index 81_neu: Lösungsliste dezent abhaken */
+#stepsList .item{
+  position:relative !important;
+  display:block !important;
+  text-align:center !important;
+  padding-left:34px !important;
+  padding-right:34px !important;
+  min-height:32px !important;
+  line-height:20px !important;
+}
+
+#stepsList .item.doneStep{
+  opacity:.62 !important;
+  color:#b7aa8c !important;
+}
+
+#stepsList .item.doneStep .stepResultText,
+#stepsList .item.doneStep{
+  text-decoration:line-through !important;
+  text-decoration-thickness:1px !important;
+  text-decoration-color:currentColor !important;
+}
+
+#stepsList .item.doneStep::after{
+  content:"✓" !important;
+  position:absolute !important;
+  right:10px !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  color:#9ed08a !important;
+  font-weight:900 !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  text-decoration:none !important;
+  text-shadow:0 1px 0 rgba(0,0,0,.7) !important;
+  pointer-events:none !important;
+}
+
+
+/* SEO-Text: sichtbar für Suchmaschinen und zugänglich, aber im Layout dezent */
+.seoText{
+  max-width:760px;
+  margin:10px auto 0;
+  padding:8px 10px;
+  color:#bda985;
+  font-size:12px;
+  line-height:1.35;
+  opacity:.72;
+}
+.seoText h2{ margin:0 0 4px; font-size:13px; color:#d6c29a; }
+.seoText p{ margin:0; }
+
 </style>
 </head>
 <body>
@@ -3584,16 +4277,19 @@ body.solutionAnimating .tapBtn{
       <summary id="helpSummary">Hilfe</summary>
       <div class="helpText" id="helpText">
         
+        
         <p><b>Riegel einstellen</b><br>Wähle zuerst die Anzahl der Riegel aus. Danach stellst du jeden Riegel so ein, wie er im Schloss steht. Der goldene Pin zeigt die Mitte.</p>
         <p><b>Riegel fixieren</b><br>Halte einen Riegel kurz gedrückt, um ihn zu fixieren. Der fixierte Riegel wird mit <b>FIX</b> markiert.</p>
         <p><b>Gleich / Gegen / Leer</b><br>Tippe die anderen Riegel an, um ihre Wirkung zum fixierten Riegel einzustellen.</p>
         <p><b>1x tippen</b> = <b>Gleich</b> – bewegt sich in dieselbe Richtung.<br>
         <b>2x tippen</b> = <b>Gegen</b> – bewegt sich in die entgegengesetzte Richtung.<br>
         <b>3x tippen</b> = <b>Leer</b> – keine Wirkung.</p>
-        <p><b>Knacken</b><br>Wenn alles eingestellt ist, drücke auf <b>Knacken</b>. Danach kannst du die Lösung mit <b>Weiter</b> und <b>Zurück</b> Schritt für Schritt ansehen.</p>
+        <p><b>Knacken</b><br>Wenn alles eingestellt ist, drücke auf <b>Knacken</b>. Danach kannst du die Lösung Schritt für Schritt ansehen.</p>
+        <p><b>Lösung bedienen</b><br>Tippe links im Display, um einen Schritt zurückzugehen. Tippe rechts im Display, um einen Schritt weiterzugehen. Unter dem aktuellen Schritt wird angezeigt, welcher Riegel danach kommt.</p>
+        <p><b>Auto</b><br>Mit <b>Auto</b> läuft die Lösung automatisch weiter. Mit dem Regler stellst du die Zeit zwischen den Schritten ein. Nach dem Start wartet Auto zuerst die eingestellte Zeit ab. Mit <b>Stop</b> hältst du Auto wieder an.</p>
         <p><b>Speichern</b><br>Du kannst ein Schloss benennen, speichern und später wieder laden. Gespeichert wird die ursprüngliche Startstellung des Schlosses, auch wenn du die Lösung vorher animiert angesehen hast.</p>
         <p><b>Wichtiger Hinweis</b><br>Gespeicherte Schlösser werden im Speicher deines Browsers oder deiner Web-App abgelegt. Sie bleiben nur zuverlässig erhalten, wenn du dieselbe Seite, dieselbe Webadresse oder dieselbe installierte Web-App verwendest. Wenn du den Browser wechselst, eine andere Adresse benutzt oder Website-Daten löschst, können gespeicherte Schlösser verloren gehen.</p>
-        <p><b>Reset</b><br><b>Schloss reset</b> setzt alles zurück.<br><b>Haken reset</b> setzt nur die Lösung und Schrittanzeige zurück.</p>
+        <p><b>Reset</b><br><b>Schloss reset</b> setzt alles zurück.<br><b>Haken reset</b> setzt nur die Lösung und Schrittanzeige zurück. Die eingestellten Riegel bleiben dabei erhalten.</p>
       </div>
     </details>
     <div class="langSwitch" aria-label="Sprache">
@@ -3644,7 +4340,21 @@ body.solutionAnimating .tapBtn{
   </div>
   <div class="panel result">
     <div id="resMeta" class="help">Noch nicht berechnet</div>
-    <div id="currentStep" class="currentStep">—</div>
+    <div class="stepDisplayWrap">
+      <div class="tapBtn stepArrow stepArrowLeft" data-action="prevStep" aria-label="Zurück">‹</div>
+      <div id="currentStep" class="currentStep">—</div>
+      <div class="tapBtn stepArrow stepArrowRight" data-action="nextStepFn" aria-label="Weiter">›</div>
+    </div>
+    <div id="nextPreview" class="nextPreview">—</div>
+
+    <div class="autoBox autoInline">
+      <label class="autoRangeWrap autoInlineRange">
+        <span id="autoSpeedText">Zeit: 4.0s</span>
+        <input type="range" id="autoDelay" min="2000" max="10000" step="100" value="6000">
+      </label>
+      <div class="tapBtn autoBtn" id="autoBtn">Auto</div>
+    </div>
+
     <div class="nav">
       <div class="tapBtn" data-action="prevStep" id="prevBtn">Zurück</div>
       <div class="tapBtn" data-action="nextStepFn" id="nextBtn">Weiter</div>
@@ -3674,29 +4384,33 @@ const STORE_LANG='gothic_schlossknacker_lang_v51';
 let lang = localStorage.getItem(STORE_LANG) || 'de';
 const I18N={
   de:{
-    appTitleTop:'SCHLOSSKNACKER', appTitleMiddle:'FÜR', appTitleBottom:'GOTHIC', docTitle:'Schlossknacker für Gothic', help:'Hilfe', language:'Sprache:', rails:'Riegel:', calculate:'Knacken', saved:'Gespeicherte Schlösser', save:'Speichern', history:'Verlauf', resetLock:'Schloss reset', resetHooks:'Haken reset', prev:'Zurück', next:'Weiter', solutionList:'Lösungsliste', savePlaceholder:'Name, z. B. Alte Mine Truhe 1', notCalculated:'Noch nicht berechnet', noSaved:'Noch keine gespeicherten Schlösser.', noHistory:'Noch kein Verlauf.', noName:'Ohne Name', load:'Laden', delete:'Löschen', active:'Aktiv', rail:'Riegel', fixed:'fixiert', tapHint:'antippen', green:'1x grün', red:'2x rot', empty:'3x leer', drag:'ziehen = Position', longHold:'lang halten', fix:'fixieren', same:'Gleich', opposite:'Gegen', blank:'Leer', enterName:'Bitte erst einen Namen eingeben.', savedOk:'Schloss gespeichert.', hooksReset:'Haken zurückgesetzt.', lockReset:'Schloss zurückgesetzt.', calculating:'Berechne...', noSolution:'Keine Lösung gefunden', impossible:'Nicht lösbar', noSolutionStatus:'Für diese Eingabe wurde keine Lösung gefunden.', solutionFound:'Lösung gefunden und im Verlauf gespeichert.', step:'Schritt', done:'Fertig', left:'links', right:'rechts', historyTitle:'Verlauf', fixBadge:'FIX', helpHtml:`
+    appTitleTop:'SCHLOSSKNACKER', appTitleMiddle:'FÜR', appTitleBottom:'GOTHIC', docTitle:'Schlossknacker für Gothic', seoHeading:'Schlossknacker für Gothic', seoDescription:'Dieser kostenlose Gothic Schlossknacker hilft dir dabei, Schlösser im Spiel Schritt für Schritt zu lösen. Stelle die Riegelpositionen ein, markiere Gleich, Gegen oder Leer und lasse dir eine passende Lösung berechnen.', help:'Hilfe', language:'Sprache:', rails:'Riegel:', calculate:'Knacken', saved:'Gespeicherte Schlösser', save:'Speichern', history:'Verlauf', resetLock:'Schloss reset', resetHooks:'Haken reset', prev:'Zurück', next:'Weiter', solutionList:'Lösungsliste', savePlaceholder:'Name, z. B. Alte Mine Truhe 1', notCalculated:'Noch nicht berechnet', noSaved:'Noch keine gespeicherten Schlösser.', noHistory:'Noch kein Verlauf.', noName:'Ohne Name', load:'Laden', delete:'Löschen', active:'Aktiv', rail:'Riegel', fixed:'fixiert', tapHint:'antippen', green:'1x grün', red:'2x rot', empty:'3x leer', drag:'ziehen = Position', longHold:'lang halten', fix:'fixieren', same:'Gleich', opposite:'Gegen', blank:'Leer', enterName:'Bitte erst einen Namen eingeben.', savedOk:'Schloss gespeichert.', hooksReset:'Haken zurückgesetzt.', lockReset:'Schloss zurückgesetzt.', calculating:'Berechne...', noSolution:'Keine Lösung gefunden', impossible:'Nicht lösbar', noSolutionStatus:'Für diese Eingabe wurde keine Lösung gefunden.', solutionFound:'Lösung gefunden und im Verlauf gespeichert.', step:'Schritt', done:'Fertig', left:'links', right:'rechts', historyTitle:'Verlauf', fixBadge:'FIX', helpHtml:`
         <p><b>Riegel einstellen</b><br>Wähle zuerst die Anzahl der Riegel aus. Danach stellst du jeden Riegel so ein, wie er im Schloss steht. Der goldene Pin zeigt die Mitte.</p>
         <p><b>Riegel fixieren</b><br>Halte einen Riegel kurz gedrückt, um ihn zu fixieren. Der fixierte Riegel wird mit <b>FIX</b> markiert.</p>
         <p><b>Gleich / Gegen / Leer</b><br>Tippe die anderen Riegel an, um ihre Wirkung zum fixierten Riegel einzustellen.</p>
         <p><b>1x tippen</b> = <b>Gleich</b> – bewegt sich in dieselbe Richtung.<br>
         <b>2x tippen</b> = <b>Gegen</b> – bewegt sich in die entgegengesetzte Richtung.<br>
         <b>3x tippen</b> = <b>Leer</b> – keine Wirkung.</p>
-        <p><b>Knacken</b><br>Wenn alles eingestellt ist, drücke auf <b>Knacken</b>. Danach kannst du die Lösung mit <b>Weiter</b> und <b>Zurück</b> Schritt für Schritt ansehen.</p>
+        <p><b>Knacken</b><br>Wenn alles eingestellt ist, drücke auf <b>Knacken</b>. Danach kannst du die Lösung Schritt für Schritt ansehen.</p>
+        <p><b>Lösung bedienen</b><br>Tippe links im Display, um einen Schritt zurückzugehen. Tippe rechts im Display, um einen Schritt weiterzugehen. Unter dem aktuellen Schritt wird angezeigt, welcher Riegel danach kommt.</p>
+        <p><b>Auto</b><br>Mit <b>Auto</b> läuft die Lösung automatisch weiter. Mit dem Regler stellst du die Zeit zwischen den Schritten ein. Nach dem Start wartet Auto zuerst die eingestellte Zeit ab. Mit <b>Stop</b> hältst du Auto wieder an.</p>
         <p><b>Speichern</b><br>Du kannst ein Schloss benennen, speichern und später wieder laden. Gespeichert wird die ursprüngliche Startstellung des Schlosses, auch wenn du die Lösung vorher animiert angesehen hast.</p>
         <p><b>Wichtiger Hinweis</b><br>Gespeicherte Schlösser werden im Speicher deines Browsers oder deiner Web-App abgelegt. Sie bleiben nur zuverlässig erhalten, wenn du dieselbe Seite, dieselbe Webadresse oder dieselbe installierte Web-App verwendest. Wenn du den Browser wechselst, eine andere Adresse benutzt oder Website-Daten löschst, können gespeicherte Schlösser verloren gehen.</p>
-        <p><b>Reset</b><br><b>Schloss reset</b> setzt alles zurück.<br><b>Haken reset</b> setzt nur die Lösung und Schrittanzeige zurück.</p>`},
+        <p><b>Reset</b><br><b>Schloss reset</b> setzt alles zurück.<br><b>Haken reset</b> setzt nur die Lösung und Schrittanzeige zurück. Die eingestellten Riegel bleiben dabei erhalten.</p>`},
   en:{
-    appTitleTop:'LOCKPICKER', appTitleMiddle:'FOR', appTitleBottom:'GOTHIC', docTitle:'Lockpicker for Gothic', help:'Help', language:'Language:', rails:'Rails:', calculate:'Pick lock', saved:'Saved locks', save:'Save', history:'History', resetLock:'Reset lock', resetHooks:'Reset steps', prev:'Back', next:'Next', solutionList:'Solution list', savePlaceholder:'Name, e.g. Old Mine chest 1', notCalculated:'Not calculated yet', noSaved:'No saved locks yet.', noHistory:'No history yet.', noName:'No name', load:'Load', delete:'Delete', active:'Active', rail:'Rail', fixed:'fixed', tapHint:'tap', green:'1x green', red:'2x red', empty:'3x empty', drag:'drag = position', longHold:'long hold', fix:'fix', same:'Same', opposite:'Opposite', blank:'Empty', enterName:'Please enter a name first.', savedOk:'Lock saved.', hooksReset:'Steps reset.', lockReset:'Lock reset.', calculating:'Calculating...', noSolution:'No solution found', impossible:'Not solvable', noSolutionStatus:'No solution was found for this setup.', solutionFound:'Solution found and saved to history.', step:'Step', done:'Done', left:'left', right:'right', historyTitle:'History', fixBadge:'FIX', helpHtml:`
+    appTitleTop:'LOCKPICKER', appTitleMiddle:'FOR', appTitleBottom:'GOTHIC', docTitle:'Lockpicker for Gothic', seoHeading:'Gothic Lockpicker', seoDescription:'This free Gothic lockpicker helps you solve in-game locks step by step. Set the rail positions, choose same, opposite or empty effects, and calculate a matching solution.', help:'Help', language:'Language:', rails:'Rails:', calculate:'Pick lock', saved:'Saved locks', save:'Save', history:'History', resetLock:'Reset lock', resetHooks:'Reset steps', prev:'Back', next:'Next', solutionList:'Solution list', savePlaceholder:'Name, e.g. Old Mine chest 1', notCalculated:'Not calculated yet', noSaved:'No saved locks yet.', noHistory:'No history yet.', noName:'No name', load:'Load', delete:'Delete', active:'Active', rail:'Rail', fixed:'fixed', tapHint:'tap', green:'1x green', red:'2x red', empty:'3x empty', drag:'drag = position', longHold:'long hold', fix:'fix', same:'Same', opposite:'Opposite', blank:'Empty', enterName:'Please enter a name first.', savedOk:'Lock saved.', hooksReset:'Steps reset.', lockReset:'Lock reset.', calculating:'Calculating...', noSolution:'No solution found', impossible:'Not solvable', noSolutionStatus:'No solution was found for this setup.', solutionFound:'Solution found and saved to history.', step:'Step', done:'Done', left:'left', right:'right', historyTitle:'History', fixBadge:'FIX', helpHtml:`
         <p><b>Set rails</b><br>First choose the number of rails. Then set each rail to match the lock. The golden pin shows the center.</p>
         <p><b>Fix a rail</b><br>Press and hold a rail briefly to fix it. The fixed rail is marked with <b>FIX</b>.</p>
         <p><b>Same / Opposite / Empty</b><br>Tap the other rails to set how they react to the fixed rail.</p>
         <p><b>1 tap</b> = <b>Same</b> – moves in the same direction.<br>
         <b>2 taps</b> = <b>Opposite</b> – moves in the opposite direction.<br>
         <b>3 taps</b> = <b>Empty</b> – no effect.</p>
-        <p><b>Pick lock</b><br>When everything is set, tap <b>Pick lock</b>. Then use <b>Next</b> and <b>Back</b> to view the solution step by step.</p>
+        <p><b>Pick lock</b><br>When everything is set, tap <b>Pick lock</b>. Then you can view the solution step by step.</p>
+        <p><b>Control the solution</b><br>Tap the left side of the display to go back one step. Tap the right side of the display to go forward one step. Below the current step, the next rail is shown.</p>
+        <p><b>Auto</b><br>With <b>Auto</b>, the solution continues automatically. Use the slider to set the time between steps. After starting, auto waits for the selected time first. Tap <b>Stop</b> to stop auto mode.</p>
         <p><b>Save</b><br>You can name a lock, save it, and load it again later. The original start position is saved, even if you already viewed the animated solution.</p>
         <p><b>Important note</b><br>Saved locks are stored in your browser or web-app storage. They only remain reliable if you use the same page, the same web address, or the same installed web app. If you change browsers, use another address, or delete website data, saved locks may be lost.</p>
-        <p><b>Reset</b><br><b>Reset lock</b> resets everything.<br><b>Reset steps</b> resets only the solution and step display.</p>`}
+        <p><b>Reset</b><br><b>Reset lock</b> resets everything.<br><b>Reset steps</b> resets only the solution and step display. The set rail positions remain unchanged.</p>`}
 };
 function t(key){ return (I18N[lang] && I18N[lang][key]) || I18N.de[key] || key; }
 function setText(id, value){ const el=document.getElementById(id); if(el) el.textContent=value; }
@@ -3706,6 +4420,9 @@ function applyLanguage(){
   setText('appTitleBottom', t('appTitleBottom'));
   document.title = t('docTitle');
   setText('helpSummary', t('help'));
+  setText('seoHeading', t('seoHeading'));
+  setText('seoDescription', t('seoDescription'));
+  const seoBlock=document.getElementById('seoTextBlock'); if(seoBlock) seoBlock.setAttribute('aria-label', lang==='en'?'Description':'Beschreibung');
   const help=document.getElementById('helpText'); if(help) help.innerHTML=t('helpHtml');
   setText('langLabel', t('language'));
   document.getElementById('langDe')?.classList.toggle('activeLang', lang==='de');
@@ -4230,7 +4947,7 @@ function renderSolution(visited){
   compactSolution.forEach((m,i)=>{
     const div=document.createElement('div');
     div.className='item';
-    div.textContent=moveText(m);
+    div.innerHTML=moveText(m);
     div.onclick=()=>{finishedStep=false; stepIndex=i; updateStep();};
     list.appendChild(div);
   });
@@ -4246,7 +4963,7 @@ function updateStep(){
   if(finishedStep){
     big.textContent=t('done');
   }else{
-    big.textContent=moveText(compactSolution[stepIndex]);
+    big.innerHTML=moveText(compactSolution[stepIndex]);
   }
   updateResMeta();
   [...document.querySelectorAll('.item')].forEach((el,i)=>{
@@ -4388,7 +5105,7 @@ function updateStep(){
     finishedStep=true;
   }else{
     finishedStep=false;
-    big.textContent=moveText(compactSolution[stepIndex]);
+    big.innerHTML=moveText(compactSolution[stepIndex]);
   }
 
   updateResMeta();
@@ -4409,7 +5126,7 @@ function renderSolution(visited){
   compactSolution.forEach((m,i)=>{
     const div=document.createElement('div');
     div.className='item';
-    div.textContent=moveText(m);
+    div.innerHTML=moveText(m);
     div.onclick=()=>{
       if(solutionAnimating) return;
       stepIndex=i;
@@ -4518,7 +5235,7 @@ function updateStep(){
   }else{
     finishedStep=false;
     setActiveRailForCurrentStep();
-    big.textContent=moveText(compactSolution[stepIndex]);
+    big.innerHTML=moveText(compactSolution[stepIndex]);
   }
 
   updateResMeta();
@@ -4617,7 +5334,7 @@ function renderSolution(visited){
   compactSolution.forEach((m,i)=>{
     const div=document.createElement('div');
     div.className='item';
-    div.textContent=moveText(m);
+    div.innerHTML=moveText(m);
     div.onclick=()=>{
       if(solutionAnimating) return;
       stepIndex=i;
@@ -4735,7 +5452,7 @@ function renderSolution(visited){
   compactSolution.forEach((m,i)=>{
     const div=document.createElement('div');
     div.className='item';
-    div.textContent=moveText(m);
+    div.innerHTML=moveText(m);
     div.onclick=()=>jumpToSolutionStep(i);
     list.appendChild(div);
   });
@@ -4771,6 +5488,699 @@ function makeSnapshot(name=''){
 }
 
 
+
+/* PATCH ChatGPT Index 26: Nächster Riegel als reine Anzeige, ohne Funktions-Override */
+function updateNextPreview26(){
+  const el=document.getElementById('nextPreview');
+  if(!el) return;
+
+  const isEn = lang === 'en';
+  const nextWord = isEn ? 'Next' : 'Danach';
+  const doneText = isEn ? 'Next: Done' : 'Danach: Fertig';
+  const railWord = t('rail');
+
+  if(!compactSolution || !compactSolution.length){
+    el.textContent='—';
+    el.style.opacity='.55';
+    return;
+  }
+
+  if(finishedStep || stepIndex >= compactSolution.length){
+    el.textContent=doneText;
+    el.style.opacity='.85';
+    return;
+  }
+
+  const nextMove=compactSolution[stepIndex+1];
+  if(nextMove && Number.isFinite(nextMove.r)){
+    el.textContent=nextWord + ': ' + railWord + ' ' + nextMove.r;
+    el.style.opacity='.9';
+  }else{
+    el.textContent=doneText;
+    el.style.opacity='.85';
+  }
+}
+
+/* bewusst per Intervall, damit keine bestehende Animation/Funktion kaputtgeht */
+setInterval(updateNextPreview26, 150);
+updateNextPreview26();
+
+
+
+/* PATCH ChatGPT Index 27: Auto-Funktion separat, ohne bestehende Funktionen zu überschreiben */
+let auto27Running=false;
+let auto27Timer=null;
+
+function auto27Text(key){
+  const de={auto:'Auto', start:'Auto', stop:'Stopp', time:'Zeit'};
+  const en={auto:'Auto', start:'Auto', stop:'Stop', time:'Time'};
+  return (lang==='en' ? en : de)[key] || key;
+}
+
+function auto27Delay(){
+  const el=document.getElementById('autoDelay');
+  const value=parseInt(el?.value || '4000', 10);
+  return Math.max(2000, Math.min(10000, value || 6000));
+}
+
+function auto27DelayLabel(){
+  return (auto27Delay()/1000).toFixed(1).replace('.', ',') + 's';
+}
+
+function auto27UpdateUi(){
+  const label=document.getElementById('autoLabel');
+  const btn=document.getElementById('autoBtn');
+  const speed=document.getElementById('autoSpeedText');
+
+  if(label) label.textContent=auto27Text('auto');
+  if(btn){
+    btn.textContent=auto27Running ? auto27Text('stop') : auto27Text('start');
+    btn.classList.toggle('running', auto27Running);
+  }
+  if(speed){
+    speed.textContent=auto27Text('time') + ': ' + auto27DelayLabel();
+  }
+}
+
+function auto27Stop(){
+  auto27Running=false;
+  if(auto27Timer){
+    clearTimeout(auto27Timer);
+    auto27Timer=null;
+  }
+  auto27UpdateUi();
+}
+
+function auto27CanRun(){
+  return !!(compactSolution && compactSolution.length && !finishedStep && stepIndex < compactSolution.length);
+}
+
+function auto27Tick(){
+  if(!auto27Running) return;
+
+  if(!auto27CanRun()){
+    auto27Stop();
+    return;
+  }
+
+  if(typeof solutionAnimating !== 'undefined' && solutionAnimating){
+    auto27Timer=setTimeout(auto27Tick, 120);
+    return;
+  }
+
+  nextStepFn();
+
+  auto27Timer=setTimeout(auto27Tick, auto27Delay());
+}
+
+function auto27Toggle(){
+  if(auto27Running){
+    auto27Stop();
+    return;
+  }
+
+  if(!auto27CanRun()){
+    auto27UpdateUi();
+    return;
+  }
+
+  auto27Running=true;
+  auto27UpdateUi();
+  auto27Timer=setTimeout(auto27Tick, auto27Delay());
+}
+
+document.getElementById('autoBtn')?.addEventListener('pointerup', function(e){
+  e.preventDefault();
+  auto27Toggle();
+});
+
+document.getElementById('autoBtn')?.addEventListener('click', function(e){
+  e.preventDefault();
+});
+
+document.getElementById('autoDelay')?.addEventListener('input', function(){
+  auto27UpdateUi();
+});
+
+/* Sicherheitsbremse: Wenn man manuell etwas anderes macht, stoppt Auto sauber */
+document.getElementById('prevBtn')?.addEventListener('pointerup', auto27Stop, true);
+document.getElementById('resetLockBtn')?.addEventListener('pointerup', auto27Stop, true);
+document.getElementById('resetHooksBtn')?.addEventListener('pointerup', auto27Stop, true);
+document.getElementById('solveBtn')?.addEventListener('pointerup', auto27Stop, true);
+
+setInterval(function(){
+  if(auto27Running && !auto27CanRun()){
+    auto27Stop();
+  }
+  auto27UpdateUi();
+}, 300);
+
+auto27UpdateUi();
+
+
+
+/* PATCH ChatGPT Index 43_neu: garantierte Kürzestsuche
+   Ersetzt die alte bidirektionale Suche durch eine saubere Level-Suche.
+   Ziel: immer die kleinste Anzahl echter Einzelbewegungen finden.
+   Bei gleich langen Lösungen wird die mit weniger zusammengefassten Anzeigezeilen bevorzugt. */
+
+function buildBidirectionalPath43(meet, startKey, targetKey, seenA, seenB){
+  const leftMoves=[];
+  let cur=meet;
+
+  while(cur!==startKey){
+    const node=seenA.get(cur);
+    if(!node || !node.prev) break;
+    leftMoves.push(node.move);
+    cur=node.prev;
+  }
+  leftMoves.reverse();
+
+  const rightMoves=[];
+  cur=meet;
+
+  while(cur!==targetKey){
+    const node=seenB.get(cur);
+    if(!node || !node.prev) break;
+    rightMoves.push({
+      r:node.move.r,
+      dir:node.move.dir==='links' ? 'rechts' : 'links'
+    });
+    cur=node.prev;
+  }
+
+  return [...leftMoves, ...rightMoves];
+}
+
+function compareSolution43(a,b){
+  if(!b) return -1;
+  if(a.length!==b.length) return a.length-b.length;
+
+  const ca=compactMoves(a).length;
+  const cb=compactMoves(b).length;
+  if(ca!==cb) return ca-cb;
+
+  /* letzter Tie-Breaker: kleinere Riegelnummern zuerst, damit es stabil bleibt */
+  for(let i=0;i<a.length;i++){
+    if(a[i].r!==b[i].r) return a[i].r-b[i].r;
+    if(a[i].dir!==b[i].dir) return a[i].dir==='links' ? -1 : 1;
+  }
+  return 0;
+}
+
+function solveBidirectional(start,target){
+  const startKey=stateKey(start), targetKey=stateKey(target);
+  if(startKey===targetKey) return {moves:[], visitedCount:1};
+
+  let qA=[start];
+  let qB=[target];
+
+  let depthA=0;
+  let depthB=0;
+
+  const seenA=new Map([[startKey,{prev:null, move:null, depth:0}]]);
+  const seenB=new Map([[targetKey,{prev:null, move:null, depth:0}]]);
+
+  let visited=2;
+  let bestMoves=null;
+  let bestDepth=Infinity;
+
+  function considerMeet(nk){
+    const a=seenA.get(nk);
+    const b=seenB.get(nk);
+    if(!a || !b) return;
+
+    const total=a.depth+b.depth;
+    if(total>bestDepth) return;
+
+    const candidate=buildBidirectionalPath43(nk,startKey,targetKey,seenA,seenB);
+    if(total<bestDepth || compareSolution43(candidate,bestMoves)<0){
+      bestDepth=total;
+      bestMoves=candidate;
+    }
+  }
+
+  function expandOneLevel(frontier, seenHere, seenThere, fromA){
+    const next=[];
+    for(const state of frontier){
+      const sk=stateKey(state);
+      const node=seenHere.get(sk);
+      const baseDepth=node ? node.depth : 0;
+
+      for(const nb of neighbors(state)){
+        const nk=stateKey(nb.state);
+        if(seenHere.has(nk)) continue;
+
+        seenHere.set(nk,{
+          prev:sk,
+          move:nb.move,
+          depth:baseDepth+1
+        });
+
+        visited++;
+
+        if(seenThere.has(nk)){
+          considerMeet(nk);
+        }
+
+        next.push(nb.state);
+      }
+    }
+    return next;
+  }
+
+  while(qA.length && qB.length){
+    /* Wenn keine kürzere Verbindung mehr möglich ist, sind wir fertig. */
+    if(bestMoves && bestDepth<=depthA+depthB+1) break;
+
+    if(qA.length<=qB.length){
+      qA=expandOneLevel(qA, seenA, seenB, true);
+      depthA++;
+    }else{
+      qB=expandOneLevel(qB, seenB, seenA, false);
+      depthB++;
+    }
+
+    if(visited>3000000) break;
+  }
+
+  if(!bestMoves) return null;
+  return {moves:bestMoves, visitedCount:visited};
+}
+
+
+
+/* PATCH ChatGPT Index 46_neu: gewichtete Kürzestsuche nach Anzeige-Schritten
+   Ein zusammenhängender Zug am selben Riegel in dieselbe Richtung zählt als 1 Anzeige-Schritt.
+   Weitere Bewegungen am selben Riegel in dieselbe Richtung erhöhen nur die x-Zahl.
+   Bei gleicher Anzeige-Schrittzahl gewinnt die Lösung mit weniger echten Einzelbewegungen. */
+
+function moveLastKey46(move){
+  return move.r + ':' + move.dir;
+}
+
+function extKey46(stateKeyText,lastKey){
+  return stateKeyText + '|' + (lastKey || '-');
+}
+
+function compareCost46(a,b){
+  if(a.blocks!==b.blocks) return a.blocks-b.blocks;
+  if(a.moves!==b.moves) return a.moves-b.moves;
+  return 0;
+}
+
+class MinHeap46{
+  constructor(){ this.a=[]; }
+
+  less(x,y){
+    const c=compareCost46(x,y);
+    if(c!==0) return c<0;
+    return x.tie<y.tie;
+  }
+
+  push(x){
+    this.a.push(x);
+    this.up(this.a.length-1);
+  }
+
+  pop(){
+    if(!this.a.length) return null;
+    const top=this.a[0];
+    const last=this.a.pop();
+    if(this.a.length){
+      this.a[0]=last;
+      this.down(0);
+    }
+    return top;
+  }
+
+  up(i){
+    while(i>0){
+      const p=(i-1)>>1;
+      if(!this.less(this.a[i],this.a[p])) break;
+      [this.a[i],this.a[p]]=[this.a[p],this.a[i]];
+      i=p;
+    }
+  }
+
+  down(i){
+    const n=this.a.length;
+    while(true){
+      let l=i*2+1, r=l+1, s=i;
+      if(l<n && this.less(this.a[l],this.a[s])) s=l;
+      if(r<n && this.less(this.a[r],this.a[s])) s=r;
+      if(s===i) break;
+      [this.a[i],this.a[s]]=[this.a[s],this.a[i]];
+      i=s;
+    }
+  }
+
+  get length(){ return this.a.length; }
+}
+
+function affectedCount46(rIdx){
+  let n=1;
+  for(let j=0;j<count;j++){
+    if(j!==rIdx && effects[rIdx][j]!==0) n++;
+  }
+  return n;
+}
+
+function neighborsWeighted46(state){
+  const out=[];
+
+  for(let i=0;i<state.length;i++){
+    const left=applyMove(state,i,-1);
+    if(left) out.push({
+      state:left,
+      move:{r:i+1, dir:'links'},
+      affected:affectedCount46(i)
+    });
+
+    const right=applyMove(state,i,1);
+    if(right) out.push({
+      state:right,
+      move:{r:i+1, dir:'rechts'},
+      affected:affectedCount46(i)
+    });
+  }
+
+  out.sort((a,b)=>{
+    if(b.affected!==a.affected) return b.affected-a.affected;
+    return a.move.r-b.move.r;
+  });
+
+  return out;
+}
+
+function solveWeightedDisplay46(start,target){
+  const startStateKey=stateKey(start);
+  const targetStateKey=stateKey(target);
+
+  if(startStateKey===targetStateKey){
+    return {moves:[], visitedCount:1};
+  }
+
+  const heap=new MinHeap46();
+  const dist=new Map();
+  const prev=new Map();
+
+  let tie=0;
+  const startExt=extKey46(startStateKey,null);
+
+  dist.set(startExt,{blocks:0,moves:0});
+  prev.set(startExt,{prev:null, move:null});
+
+  heap.push({
+    state:start.slice(),
+    stateKeyText:startStateKey,
+    lastKey:null,
+    blocks:0,
+    moves:0,
+    tie:tie++
+  });
+
+  let visited=0;
+  let finalExt=null;
+
+  while(heap.length){
+    const cur=heap.pop();
+    const curExt=extKey46(cur.stateKeyText,cur.lastKey);
+    const known=dist.get(curExt);
+
+    if(!known || known.blocks!==cur.blocks || known.moves!==cur.moves){
+      continue;
+    }
+
+    visited++;
+
+    if(cur.stateKeyText===targetStateKey){
+      finalExt=curExt;
+      break;
+    }
+
+    for(const nb of neighborsWeighted46(cur.state)){
+      const nk=stateKey(nb.state);
+      const lk=moveLastKey46(nb.move);
+      const ne=extKey46(nk,lk);
+
+      const continues = cur.lastKey===lk;
+      const nextCost={
+        blocks:cur.blocks + (continues ? 0 : 1),
+        moves:cur.moves + 1
+      };
+
+      const old=dist.get(ne);
+      if(old && compareCost46(old,nextCost)<=0) continue;
+
+      dist.set(ne,nextCost);
+      prev.set(ne,{prev:curExt, move:nb.move});
+
+      heap.push({
+        state:nb.state,
+        stateKeyText:nk,
+        lastKey:lk,
+        blocks:nextCost.blocks,
+        moves:nextCost.moves,
+        tie:tie++
+      });
+    }
+
+    if(visited>5000000) break;
+  }
+
+  if(!finalExt) return null;
+
+  const moves=[];
+  let cur=finalExt;
+
+  while(cur!==startExt){
+    const p=prev.get(cur);
+    if(!p || !p.prev) break;
+    moves.push(p.move);
+    cur=p.prev;
+  }
+
+  moves.reverse();
+  return {moves, visitedCount:visited};
+}
+
+function solveBidirectional(start,target){
+  return solveWeightedDisplay46(start,target);
+}
+
+
+
+/* PATCH ChatGPT Index 49_neu: kompakter Schritttext im Display / Lösungsliste */
+function moveText(m){
+  const arrow = m.dir === 'links' ? '->' : '<-';
+  return `R${m.r}  ${arrow}  ${m.count || 1}x`;
+}
+
+
+
+/* PATCH ChatGPT Index 50_neu: schönerer Pfeil im Schritttext */
+function moveText(m){
+  const arrow = m.dir === 'links' ? '←' : '→';
+  return `R${m.r}  ${arrow}  ${m.count || 1}x`;
+}
+
+
+
+/* PATCH ChatGPT Index 56_neu: zurück zu sicherem Textpfeil ohne HTML */
+function moveText(m){
+  const arrow = m.dir === 'links' ? '←' : '→';
+  return `R${m.r}  ${arrow}  ${m.count || 1}x`;
+}
+
+
+
+/* PATCH ChatGPT Index 57_neu: Pfeilrichtung nur in der Anzeige getauscht */
+function moveText(m){
+  const arrow = m.dir === 'links' ? '→' : '←';
+  return `R${m.r}  ${arrow}  ${m.count || 1}x`;
+}
+
+
+
+/* PATCH ChatGPT Index 60_neu: gleicher Pfeil wie Index 57, nur größer */
+function moveText(m){
+  const arrow = m.dir === 'links' ? '→' : '←';
+  return `R${m.r}&nbsp;&nbsp;<span class="stepArrowText">${arrow}</span>&nbsp;&nbsp;${m.count || 1}x`;
+}
+
+
+/* PATCH ChatGPT Index 81_neu: saubere Hakenlogik für Lösungsliste */
+let doneListStep81 = -1;
+
+function applyDoneMarks81(){
+  const items=[...document.querySelectorAll('#stepsList .item')];
+
+  items.forEach((el,i)=>{
+    const done = i <= doneListStep81;
+    const active = !finishedStep && i === stepIndex;
+
+    el.classList.toggle('doneStep', done);
+    el.style.outline = active ? '2px solid #c06748' : 'none';
+    el.style.opacity = active ? '1' : (done ? '.62' : '.86');
+  });
+}
+
+function setDisplayToSolutionIndex81(displayIndex, targetStateIndex){
+  const targetState = getSolutionStateAtStep(targetStateIndex);
+  const currentState = rows.map(r=>r.start);
+
+  if(displayIndex >= compactSolution.length){
+    stepIndex = compactSolution.length;
+    finishedStep = true;
+  }else{
+    stepIndex = Math.max(0, displayIndex);
+    finishedStep = false;
+    if(compactSolution[stepIndex]){
+      activeRow = Math.max(0, Math.min(count-1, compactSolution[stepIndex].r-1));
+    }
+  }
+
+  function finishJump81(){
+    rows = targetState.map(p=>({start:p}));
+
+    if(!finishedStep && compactSolution[stepIndex]){
+      activeRow = Math.max(0, Math.min(count-1, compactSolution[stepIndex].r-1));
+    }
+
+    solutionAnimating = false;
+    renderAll();
+    updateStep();
+    applyDoneMarks81();
+  }
+
+  if(sameSolutionState(currentState, targetState)){
+    finishJump81();
+    return;
+  }
+
+  solutionAnimating = true;
+  renderAll();
+  updateStep();
+  applyDoneMarks81();
+
+  requestAnimationFrame(()=>{
+    animateToState(targetState, finishJump81);
+  });
+}
+
+function toggleListDone81(i){
+  if(!compactSolution.length || solutionAnimating) return;
+
+  if(doneListStep81 >= i){
+    /* Bereits erledigten Schritt erneut antippen:
+       Haken bis davor zurücknehmen und diesen Schritt wieder anzeigen. */
+    doneListStep81 = i - 1;
+    setDisplayToSolutionIndex81(i, i);
+  }else{
+    /* Schritt abhaken:
+       Status nach diesem Schritt herstellen und nächsten Schritt anzeigen. */
+    doneListStep81 = i;
+    setDisplayToSolutionIndex81(i + 1, i + 1);
+  }
+}
+
+/* Nur die Lösungsliste wird sauber neu gebaut. */
+function renderSolution(visited){
+  const list=document.getElementById('stepsList');
+  list.innerHTML='';
+  finishedStep=false;
+  doneListStep81=-1;
+
+  const fold=document.getElementById('solutionFold');
+  if(fold) fold.open=false;
+
+  if(compactSolution.length){
+    stepIndex=0;
+    if(solutionStartState && solutionStartState.length===count){
+      rows=solutionStartState.map(p=>({start:p}));
+    }
+    setActiveRailForCurrentStep();
+    renderAll();
+  }
+
+  compactSolution.forEach((m,i)=>{
+    const div=document.createElement('div');
+    div.className='item';
+    div.innerHTML=`<span class="stepResultText">${moveText(m)}</span>`;
+    div.onclick=()=>toggleListDone81(i);
+    list.appendChild(div);
+  });
+
+  updateStep();
+  applyDoneMarks81();
+}
+
+const __oldUpdateStep81 = typeof updateStep === 'function' ? updateStep : null;
+if(__oldUpdateStep81){
+  updateStep = function(){
+    __oldUpdateStep81();
+    applyDoneMarks81();
+  };
+}
+
+const __oldNextStepFn81 = typeof nextStepFn === 'function' ? nextStepFn : null;
+if(__oldNextStepFn81){
+  nextStepFn = function(){
+    const before = stepIndex;
+    __oldNextStepFn81();
+
+    window.setTimeout(function(){
+      if(compactSolution.length){
+        if(finishedStep || stepIndex >= compactSolution.length){
+          doneListStep81 = compactSolution.length - 1;
+        }else{
+          doneListStep81 = Math.max(doneListStep81, before);
+        }
+        applyDoneMarks81();
+      }
+    }, 360);
+  };
+}
+
+const __oldPrevStep81 = typeof prevStep === 'function' ? prevStep : null;
+if(__oldPrevStep81){
+  prevStep = function(){
+    __oldPrevStep81();
+
+    window.setTimeout(function(){
+      if(compactSolution.length){
+        doneListStep81 = Math.min(doneListStep81, stepIndex - 1);
+        applyDoneMarks81();
+      }
+    }, 360);
+  };
+}
+
+const __oldResetHooks81 = typeof resetHooks === 'function' ? resetHooks : null;
+if(__oldResetHooks81){
+  resetHooks = function(){
+    doneListStep81 = -1;
+    __oldResetHooks81();
+    applyDoneMarks81();
+  };
+}
+
+const __oldClearResult81 = typeof clearResult === 'function' ? clearResult : null;
+if(__oldClearResult81){
+  clearResult = function(){
+    doneListStep81 = -1;
+    __oldClearResult81();
+    applyDoneMarks81();
+  };
+}
+
 </script>
+
+<section class="seoText" id="seoTextBlock" aria-label="Beschreibung">
+  <h2 id="seoHeading">Schlossknacker für Gothic</h2>
+  <p id="seoDescription">Dieser kostenlose Gothic Schlossknacker hilft dir dabei, Schlösser im Spiel Schritt für Schritt zu lösen. Stelle die Riegelpositionen ein, markiere Gleich, Gegen oder Leer und lasse dir eine passende Lösung berechnen.</p>
+</section>
+
 </body>
 </html>
