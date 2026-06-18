@@ -4367,7 +4367,7 @@ body.solutionAnimating .tapBtn{
 </div>
 
 <script>
-const MIN_R=3, MAX_R=7;
+const MIN_R=4, MAX_R=7;
 let count=4;
 let rows=[];
 let effects=[];
@@ -4594,9 +4594,21 @@ function renderStoreList(id, items, named){
 }
 
 function initData(n){
-  rows = Array.from({length:n}, ()=>({start:4}));
-  effects = Array.from({length:n}, (_,i)=>Array.from({length:n}, (_,j)=>i===j?0:0));
-  activeRow = 0;
+  const oldRows = Array.isArray(rows) ? rows : [];
+  const oldEffects = Array.isArray(effects) ? effects : [];
+  const oldActiveRow = typeof activeRow === 'number' ? activeRow : 0;
+
+  rows = Array.from({length:n}, (_,i)=>(
+    oldRows[i] ? {...oldRows[i]} : {start:4}
+  ));
+
+  effects = Array.from({length:n}, (_,i)=>Array.from({length:n}, (_,j)=>{
+    if(i===j) return 0;
+    if(oldEffects[i] && typeof oldEffects[i][j] === 'number') return oldEffects[i][j];
+    return 0;
+  }));
+
+  activeRow = Math.min(oldActiveRow, n - 1);
 }
 function buildCountButtons(){
   const root=document.getElementById('countBtns');
