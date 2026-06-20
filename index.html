@@ -4938,7 +4938,9 @@ function resetHooks(){
   document.getElementById('status').textContent=t('hooksReset');
 }
 function resetLock(){
-  initData(count);
+  rows = Array.from({length:count}, ()=>({start:4}));
+  effects = Array.from({length:count}, (_,i)=>Array.from({length:count}, (_,j)=>i===j?0:0));
+  activeRow = 0;
   clearResult();
   buildCountButtons();
   renderAll();
